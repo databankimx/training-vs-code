@@ -147,3 +147,11 @@ vite.config.ts.timestamp-*
 
 # Turbo Repo
 .turbo
+
+# Design notes for this tutorial, which aren't published
+resources/
+
+# Windows
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/

@@ -40,6 +40,7 @@ A step's `lesson.json` may name one file in its folder with `"file"`. The Source
 
 - The runner reads the course from the parent folder, `..`. It never writes into the course.
 - Lesson images come from the chapter's `images/` folder, so every lesson in a chapter refers to them as `images/name.png`.
+- An image is full width unless its title sets a width: `![Panel](images/ch00-panel.png "width=60%")`. Plain percentages and pixel widths are accepted, and anything else is ignored.
 - Progress is saved in the user data folder as `progress.json`. Edits in the Source pane last only while the learner is on the step.
 - Keyboard: Ctrl+Right moves to the next step, and Ctrl+Left moves back. Ctrl with the mouse wheel changes the text size. Ctrl+Alt+Shift+Backspace clears saved progress: quiz answers, spoiler states, the last lesson, and visited steps.
 - The menu bar is hidden. Links open in the browser, not in the runner.

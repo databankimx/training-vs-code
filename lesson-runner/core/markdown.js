@@ -246,7 +246,11 @@ function createRenderer(options = {}) {
     const src = token.attrGet('src') || '';
     const uri = env && typeof env.resolveImage === 'function' ? env.resolveImage(src) : null;
     if (!uri) return `<span class="missing-image">${md.utils.escapeHtml(`Image not found: ${src}`)}</span>`;
-    return `<img src="${uri}" alt="${md.utils.escapeHtml(token.content || '')}">`;
+    // The image title can set a width, as in ![alt](images/x.png "width=50%"). Only a plain percentage or pixel width is
+    // accepted, so the title can't add any other style. Any other title is ignored.
+    const size = /^width=(\d{1,3}(?:%|px))$/.exec((token.attrGet('title') || '').trim());
+    const style = size ? ` style="width: ${size[1]};"` : '';
+    return `<img src="${uri}" alt="${md.utils.escapeHtml(token.content || '')}"${style}>`;
   };
 
   return md;

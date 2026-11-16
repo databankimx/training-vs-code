@@ -23,7 +23,7 @@ The course ends with a capstone that uses everything, a summary checklist, and a
 
 - A computer running Windows 10 or Windows 11.
 - Visual Studio Code. The setup script installs it for you, and Chapter 1 shows you how to install it by hand if you prefer.
-- A GitHub account for the practice repository. If you do not have one, Chapter 2 walks you through creating it, and it is free. If your organization gives you a GitHub Enterprise address, use that address instead, and the lesson tells you where.
+- A personal GitHub account for the practice repository. If you do not have one, Chapter 2 walks you through creating it, and it is free. The course does not use company GitHub Enterprise accounts, because they cannot create the practice repository.
 - Basic comfort with the terminal. You should know how to open one and type a command. Chapter 8 covers the rest.
 - Patience with the practice repository. It is yours to break, and you will break it on purpose more than once.
 

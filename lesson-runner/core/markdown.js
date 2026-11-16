@@ -223,9 +223,33 @@ function examplesInfo(info) {
   return { source: flags.includes('source'), readonly: flags.includes('readonly') };
 }
 
+// A list item that starts with [ ] or [x] becomes a checklist item, drawn with a box. The box is built here, not read
+// from the page's HTML, because raw HTML stays off. The boxes are not clickable yet: ticks are stored in progress later.
+function addChecklistBoxes(md) {
+  md.core.ruler.after('inline', 'checklist_boxes', (state) => {
+    const tokens = state.tokens;
+    for (let i = 2; i < tokens.length; i++) {
+      const token = tokens[i];
+      if (token.type !== 'inline' || !token.children || token.children.length === 0) continue;
+      if (tokens[i - 2].type !== 'list_item_open') continue;
+      const first = token.children[0];
+      if (first.type !== 'text') continue;
+      const match = /^\[( |x|X)\] /.exec(first.content);
+      if (!match) continue;
+      const checked = match[1] !== ' ';
+      first.content = first.content.slice(4);
+      const box = new state.Token('html_inline', '', 0);
+      box.content = `<input type="checkbox" class="task-box" disabled${checked ? ' checked' : ''}> `;
+      token.children.unshift(box);
+      tokens[i - 2].attrJoin('class', 'task-item');
+    }
+  });
+}
+
 function createRenderer(options = {}) {
   const md = new MarkdownIt({ html: false, linkify: true, typographer: false, highlight: options.highlight || null });
   const defaultFence = md.renderer.rules.fence;
+  addChecklistBoxes(md);
 
   md.renderer.rules.fence = (tokens, index, options, env, self) => {
     const token = tokens[index];

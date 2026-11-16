@@ -281,9 +281,16 @@
     }
   }
 
-  // Sets up the Source tab for a lesson. A step with no file shows a note.
+  // Sets up the Source tab for a lesson. A step with no file shows a note, and its Source tab is disabled.
   function renderSource(lesson) {
     ui.solutionsToggle.hidden = !lesson.gated;
+    const sourceTab = document.querySelector('.tab[data-tab="source"]');
+    sourceTab.disabled = !lesson.source;
+    if (lesson.source) {
+      sourceTab.removeAttribute('title');
+    } else {
+      sourceTab.title = 'No source code available for this lesson';
+    }
     if (!lesson.source) {
       state.source = null;
       ui.sourceName.textContent = '';
@@ -760,8 +767,9 @@
     });
     document.getElementById('popout').addEventListener('click', () => {
       if (state.current) window.runner.popOutLesson(state.current.id);
-      // The main pane moves to Source, so the code stays in view while the lesson is in its own window.
-      showTab('source');
+      // The main pane moves to Source, so the code stays in view while the lesson is in its own window. A lesson with
+      // no source file has no Source tab to move to, so the Lesson tab stays.
+      if (state.current && state.current.source) showTab('source');
     });
     document.getElementById('popout-copy').addEventListener('click', (event) => {
       copyText(state.current ? state.current.markdown : '', event.currentTarget);

@@ -8,15 +8,15 @@ The color theme sets the colors of the whole window. The course's screenshots us
 
 To change it, press Ctrl+K and then Ctrl+T. A list of themes opens. Move through it and the window changes as you go, and press Enter to keep the one you like.
 
-![Figure 1.3 - Dark color theme picker](images/ch01-theme-picker-dark.png)
+![Figure 1.4 - Dark color theme picker](images/ch01-theme-picker-dark.png)
 
-*Figure 1.3 - Dark color theme picker*
+*Figure 1.4 - Dark color theme picker*
 
-![Figure 1.4 - Light color theme picker](images/ch01-theme-picker-light.png)
+![Figure 1.5 - Light color theme picker](images/ch01-theme-picker-light.png)
 
-*Figure 1.4 - Light color theme picker*
+*Figure 1.5 - Light color theme picker*
 
-Figure 1.3 shows the theme picker with the dark theme chosen, and Figure 1.4 shows the same picker with a light theme. Both show the same list, so you can see where each one sits in it.
+Figure 1.4 shows the theme picker with the dark theme chosen, and Figure 1.5 shows the same picker with a light theme. Both show the same list, so you can see where each one sits in it.
 
 ## The display language
 

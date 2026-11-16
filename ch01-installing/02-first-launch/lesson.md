@@ -14,15 +14,21 @@ VS Code works on folders. You open the folder that holds your project, and VS Co
 
 To open a folder yourself, choose File, then Open Folder, and pick the folder. You will do this in more detail in Chapter 3.
 
-## The workspace trust prompt
+## Restricted Mode and workspace trust
 
-The first time you open a folder, VS Code asks whether you trust the people who wrote it.
+The first time you open a folder, VS Code opens it in Restricted Mode. You can see the files and edit them, but some features stay off until you tell VS Code you trust the folder. VS Code does not ask as soon as the folder opens. Instead, the button in the lower left corner of the window shows that the folder is in Restricted Mode.
 
-![Figure 1.2 - Workspace trust prompt](images/ch01-workspace-trust.png)
+![Figure 1.2 - Restricted Mode button in the lower left corner](images/ch01-restricted-mode.png)
 
-*Figure 1.2 - Workspace trust prompt*
+*Figure 1.2 - Restricted Mode button in the lower left corner*
 
-Trust matters because a folder can contain settings and tasks that run programs on your computer. VS Code keeps a folder in Restricted Mode until you say you trust it. In Restricted Mode, some features are turned off, such as running tasks and debugging.
+Select that button, and VS Code shows the trust prompt. It asks whether you trust the people who wrote the folder.
+
+![Figure 1.3 - Workspace trust prompt](images/ch01-workspace-trust.png)
+
+*Figure 1.3 - Workspace trust prompt*
+
+Trust matters because a folder can contain settings and tasks that run programs on your computer. In Restricted Mode, some features are turned off, such as running tasks and debugging.
 
 For the practice repository, choose Yes, I trust the authors. You own that folder, and the course needs the features that trust turns on. Choose No, I don't trust the authors for a folder you have downloaded from somewhere you do not know, or that you were sent by someone you do not trust.
 

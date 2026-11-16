@@ -20,4 +20,17 @@ You do not need to create a file to try Emmet. Press {{Ctrl+N}} to open a new un
 
 > **Other languages:** Emmet only works where the language mode supports it. A Python file will not expand the abbreviation, and {{Tab}} will simply insert spaces.
 
+## Example: a card with two paragraphs
+
+Type `div.note>p*2` in an HTML file, then press {{Tab}}:
+
+```html
+<div class="note">
+  <p></p>
+  <p></p>
+</div>
+```
+
+The `div.note` part makes a `div` with the class `note`, the `>` puts the paragraphs inside it, and `*2` makes two of them. Fill in the text inside each paragraph, and you have a small block of HTML without typing any of the tags by hand.
+
 ---

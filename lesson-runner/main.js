@@ -13,20 +13,9 @@ const path = require('node:path');
 const { loadCatalog, flatten, summarize, neighbors, readParts, checkParts, groupByPart } = require('./core/catalog');
 const { createRenderer } = require('./core/markdown');
 const { lessonImageUri } = require('./core/images');
-const { highlightCode, markdownHighlight } = require('./core/highlight');
-const {
-  emptyState,
-  loadState,
-  saveState,
-  markVisited,
-  recordProgress,
-  lessonProgress,
-  recordSolutionsRevealed,
-  solutionsRevealed,
-} = require('./core/state');
+const { markdownHighlight } = require('./core/highlight');
+const { emptyState, loadState, saveState, markVisited, recordProgress, lessonProgress } = require('./core/state');
 const { loadWindowState, saveWindowState, isVisibleOn } = require('./core/window-state');
-const { isGatedStep } = require('./core/gating');
-const { changedLines } = require('./core/diff');
 
 // The runner lives in lesson-runner/, inside the course folder.
 const courseRoot = path.resolve(__dirname, '..');
@@ -55,25 +44,6 @@ function findItem(id) {
   return currentItems().find((candidate) => candidate.id === id) ?? null;
 }
 
-// Reads a text file with line endings as LF, because the page's editor stores LF. Otherwise a CRLF file would look
-// modified as soon as it is shown.
-function readText(file) {
-  return fs.readFileSync(file, 'utf8').replace(/\r\n?/g, '\n');
-}
-
-// The file a step shows in its Source pane, read from the step's folder. Null for a step with no file, and for a chapter.
-function sourceFor(item) {
-  if (item.kind !== 'step' || !item.file) return null;
-  return { name: item.file, text: readText(path.join(item.dir, item.file)), edit: item.edit };
-}
-
-// The homework solution for a step's file: solution.json for a step on data.json, and so on. Null when there isn't one.
-function solutionFileFor(item) {
-  if (item.kind !== 'step' || !item.file) return null;
-  const name = `solution${path.extname(item.file)}`;
-  return fs.existsSync(path.join(item.dir, name)) ? path.join(item.dir, name) : null;
-}
-
 function openLesson(id) {
   const items = currentItems();
   const item = items.find((candidate) => candidate.id === id);
@@ -82,7 +52,6 @@ function openLesson(id) {
   const markdown = fs.readFileSync(item.markdownPath, 'utf8');
   const { previous, next } = neighbors(items, id);
   const state = loadState(stateFile());
-  const gated = isGatedStep(item) && solutionFileFor(item) !== null;
   return {
     id: item.id,
     kind: item.kind,
@@ -93,11 +62,6 @@ function openLesson(id) {
     next: next ? { id: next.id, title: next.title } : null,
     isLast: next === null,
     progress: lessonProgress(state, id),
-    // The step's file for the Source pane, or null. Its text is sent as it is shipped, so Reset can restore it.
-    source: sourceFor(item),
-    // A gated step has a solution behind a spoiler. The solution itself is not sent until the learner opens the gate.
-    gated,
-    solutionsRevealed: gated && solutionsRevealed(state, id),
   };
 }
 
@@ -216,21 +180,6 @@ function registerHandlers() {
       if (window && !window.isDestroyed()) window.webContents.send('progress:reset');
     }
   });
-  // Opens a gated step's solution. Only then is the solution sent to the page, and the gate stays open. The changes are
-  // listed, so the learner can see where the solution differs from the file they were given.
-  ipcMain.handle('solutions:reveal', (_event, id) => {
-    const lessonId = String(id);
-    const item = findItem(lessonId);
-    if (!isGatedStep(item)) throw new Error('This step has no solution to reveal.');
-    const solutionFile = solutionFileFor(item);
-    if (!solutionFile) throw new Error('The solution file for this step is missing.');
-    saveState(stateFile(), recordSolutionsRevealed(loadState(stateFile()), lessonId));
-    const code = readText(solutionFile);
-    const starter = readText(path.join(item.dir, item.file));
-    return { code, changes: changedLines(starter, code) };
-  });
-  // Colors the Source pane's text. The language is a file extension such as "json", and unknown ones are shown plainly.
-  ipcMain.handle('code:highlight', (_event, code, language) => highlightCode(String(code), String(language)));
   // The light or dark mode is shared by every window, so a change in one window is sent to all of them.
   ipcMain.handle('theme:set', (_event, light) => {
     for (const window of BrowserWindow.getAllWindows()) {

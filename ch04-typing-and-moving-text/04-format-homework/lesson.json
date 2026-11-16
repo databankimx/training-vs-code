@@ -1,8 +1,4 @@
 {
   "title": "Homework: fix the formatting in calculator.py",
-  "objective": "Fix the spacing in calculator.py by hand, then compare your version with the worked solution.",
-  "section": "homework",
-  "spoiler": true,
-  "file": "calculator.py",
-  "edit": "file"
+  "objective": "Fix the spacing in calculator.py by hand, then compare your version with the worked solution."
 }

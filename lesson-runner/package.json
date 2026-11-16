@@ -2,7 +2,7 @@
   "name": "training-vs-code-runner",
   "version": "0.1.0",
   "private": true,
-  "description": "Lesson runner for the Working With Visual Studio Code tutorial: rendered lessons, a Source pane for one file per step, and a JSON check",
+  "description": "Lesson runner for the Working With Visual Studio Code tutorial: rendered lessons, quizzes, spoilers, and examples",
   "main": "main.js",
   "license": "MIT",
   "engines": {
@@ -10,7 +10,7 @@
   },
   "scripts": {
     "start": "electron .",
-    "test": "node --test test/catalog.test.js test/markdown.test.js test/state.test.js test/window-state.test.js test/highlight.test.js test/shadow.test.js test/gating.test.js test/parts.test.js test/images.test.js test/readonly.test.js test/diff.test.js test/image-size.test.js test/checklist.test.js test/keycaps.test.js"
+    "test": "node --test test/catalog.test.js test/markdown.test.js test/state.test.js test/window-state.test.js test/highlight.test.js test/shadow.test.js test/parts.test.js test/images.test.js test/readonly.test.js test/image-size.test.js test/checklist.test.js test/keycaps.test.js"
   },
   "dependencies": {
     "highlight.js": "^11.10.0",

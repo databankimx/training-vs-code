@@ -41,9 +41,9 @@
       .nav-row.part { font-weight: 600; }
       .nav-row.in-part { padding-left: 34px; }
 
-      /* Main area: the header, then the Source and Lesson area, which takes all the height left */
+      /* Main area: the header, then the lesson, which takes all the height left, then the Next and Previous row */
       .main { flex: 1; display: flex; flex-direction: column; min-width: 0; }
-      .header { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 20px; }
+      .header { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 20px; border-bottom: 1px solid var(--border); }
       .header h1 { margin: 0; font-size: 22px; font-weight: 600; }
       .actions { display: flex; align-items: center; gap: 14px; }
       .theme-group { display: flex; align-items: center; gap: 8px; color: var(--muted); cursor: pointer; }
@@ -53,25 +53,20 @@
       .slider::before { content: ""; position: absolute; left: 3px; top: 3px; width: 16px; height: 16px; background: #ffffff; border-radius: 50%; transition: transform 0.15s; }
       .theme-switch input:checked + .slider::before { transform: translateX(22px); }
       .icon { display: block; }
-      .icon-button { display: inline-flex; align-items: center; justify-content: center; padding: 3px 5px; background: none; border: none; color: var(--muted); border-radius: 3px; }
+      .icon-button { display: inline-flex; align-items: center; justify-content: center; padding: 3px 5px; background: none; border: none; color: var(--muted); border-radius: 3px; cursor: pointer; }
       .icon-button:hover:not(:disabled) { color: var(--text); background: var(--select); }
       button { font: inherit; }
-      .link-button { background: none; border: none; color: var(--muted); padding: 4px 8px; cursor: pointer; font-size: 13px; }
-      .link-button:hover:not(:disabled) { color: var(--text); }
-      .link-button:disabled { opacity: 0.5; cursor: default; }
       .nav-button { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; background: var(--button-off); color: var(--text); border: none; border-radius: 3px; font: inherit; font-size: 14px; cursor: pointer; }
       .nav-button.primary { background: var(--accent); color: #ffffff; }
       .nav-button:disabled { opacity: 0.5; cursor: default; }
       .nav-button .icon { flex: none; }
+      .primary { padding: 8px 18px; background: var(--accent); color: #ffffff; border: none; border-radius: 3px; font-size: 15px; cursor: pointer; }
 
-      /* The Source and Lesson area: the tabs on top, then whichever is showing, then the Next and Previous row */
-      .source-pane { flex: 1; min-height: 0; display: flex; flex-direction: column; border-top: 1px solid var(--border); }
-      .tabs { display: flex; align-items: center; gap: 2px; padding: 0 12px; border-bottom: 1px solid var(--border); }
-      .tab { background: none; border: none; color: var(--muted); padding: 8px 14px; border-bottom: 2px solid transparent; cursor: pointer; font: inherit; }
-      .tab.active { color: var(--text); font-weight: 600; border-bottom-color: var(--accent); }
-      .tab:disabled { opacity: 0.45; cursor: not-allowed; }
-      .tabs-right { margin-left: auto; display: flex; align-items: center; gap: 6px; }
-      .source-area { flex: 1; min-height: 0; display: flex; flex-direction: column; }
+      /* The lesson area and the Next and Previous row */
+      .lesson-area { flex: 1; min-height: 0; display: flex; flex-direction: column; }
+      .next-row { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 10px 24px; border-top: 1px solid var(--border); }
+      .nav-group { display: flex; align-items: center; gap: 10px; min-width: 0; }
+      .nav-hint { color: var(--muted); font-size: 12px; max-width: 260px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
       /* Code colors: the same palette as the other runners. The light theme gets its own values. */
       :root { --tok-keyword: #569cd6; --tok-type: #4ec9b0; --tok-function: #dcdcaa; --tok-variable: #9cdcfe; --tok-string: #ce9178; --tok-number: #b5cea8; --tok-comment: #6a9955; }
@@ -83,33 +78,6 @@
       .hljs-number { color: var(--tok-number); }
       .hljs-comment, .hljs-quote { color: var(--tok-comment); font-style: italic; }
       .hljs-variable, .hljs-params, .hljs-property, .hljs-attr { color: var(--tok-variable); }
-
-      /* Source: the file's name and actions above the code, then the editor or the solution, then the JSON status line */
-      .source { flex: 1; min-height: 0; display: flex; flex-direction: column; color: var(--muted); }
-      .source-bar { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 0 12px 0 20px; background: var(--panel); border-bottom: 1px solid var(--border); min-height: 34px; }
-      .source-name { font-family: Consolas, "Cascadia Mono", monospace; font-size: 13px; color: var(--text); }
-      .source-actions { display: flex; align-items: center; gap: 8px; }
-      .modified { color: #d7ba7d; font-size: 12px; }
-      body.light .modified { color: #855f00; }
-      .code-area { flex: 1; min-height: 0; position: relative; }
-      .code-area:has(> #editor[hidden]) { display: none; }
-      .highlight, .editor { position: absolute; inset: 0 0 0 56px; margin: 0; padding: 10px 20px; border: none; outline: none; overflow: auto; font-family: Consolas, "Cascadia Mono", monospace; font-size: 13px; line-height: 1.5; tab-size: 4; white-space: pre; }
-      .highlight { background: var(--bg); color: var(--text); pointer-events: none; overflow: hidden; }
-      .editor { resize: none; background: transparent; color: transparent; caret-color: var(--text); }
-      .editor[readonly] { cursor: default; }
-      /* The line-number gutter sits to the left of the code, and scrolls with it. */
-      .gutter { position: absolute; top: 0; bottom: 0; left: 0; width: 56px; margin: 0; padding: 10px 12px 10px 0; overflow: hidden; text-align: right; color: var(--muted); background: var(--panel); font-family: Consolas, "Cascadia Mono", monospace; font-size: 13px; line-height: 1.5; user-select: none; pointer-events: none; }
-      .solutions { flex: 1; min-height: 0; overflow: auto; display: flex; flex-direction: column; }
-      .solutions-note { position: sticky; top: 0; z-index: 1; margin: 0; padding: 6px 20px; background: var(--panel); border-bottom: 1px solid var(--border); color: var(--muted); font-size: 12px; }
-      .solution-changes { padding: 10px 20px; border-bottom: 1px solid var(--border); line-height: 1.6; font-size: var(--lesson-size); color: var(--text); }
-      .solution-changes pre { background: var(--code-bg); padding: 10px 14px; border-radius: 4px; white-space: pre-wrap; overflow-wrap: anywhere; }
-      .solutions-body { display: flex; align-items: flex-start; padding: 10px 0 14px; }
-      .solution-gutter { position: sticky; left: 0; flex: none; margin: 0; padding: 0 12px 0 20px; min-width: 56px; text-align: right; color: var(--muted); background: var(--bg); font-family: Consolas, "Cascadia Mono", monospace; font-size: 13px; line-height: 1.5; user-select: none; }
-      .solutions pre#solution-code { margin: 0; padding: 0 20px 0 0; white-space: pre; font-family: Consolas, "Cascadia Mono", monospace; font-size: 13px; line-height: 1.5; color: var(--text); }
-      .json-status { padding: 4px 20px; border-top: 1px solid var(--border); font-size: 12px; color: var(--muted); }
-      .json-status.ok { color: var(--ok); }
-      .json-status.bad { color: var(--error); }
-      .no-source { margin: 0; padding: 12px 20px; color: var(--muted); }
 
       /* Lesson text. Code blocks wrap rather than scroll sideways. */
       .lesson { flex: 1; overflow: auto; padding: 14px 24px 24px; line-height: 1.6; font-size: var(--lesson-size); min-height: 0; }
@@ -165,22 +133,16 @@
       .example-pane[hidden] { display: none; }
       .example-pane pre { margin: 0; }
 
-      .next-row { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 10px 24px; border-top: 1px solid var(--border); }
-      .nav-group { display: flex; align-items: center; gap: 10px; min-width: 0; }
-      .nav-hint { color: var(--muted); font-size: 12px; max-width: 260px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-
       /* Shown in the lesson pane while the lesson is open in its own window */
       .redock { flex: 1; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 12px; padding: 24px 32px; color: var(--muted); }
       .redock p { margin: 0; color: var(--text); }
-      .primary { padding: 8px 18px; background: var(--accent); color: #ffffff; border: none; border-radius: 3px; font-size: 15px; cursor: pointer; }
 
       .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); padding: 8px 18px; border-radius: 4px; background: var(--header); color: #ffffff; font-size: 13px; pointer-events: none; z-index: 1000; }
 
       /* Pop-out window: only the lesson, with the copy and re-dock buttons in the header */
       .popout-only { display: none; }
       body.popout .popout-only { display: inline-flex; }
-      body.popout .sidebar, body.popout .tabs, body.popout .source { display: none !important; }
-      body.popout .source-pane { height: 100%; border-top: none; }
+      body.popout .sidebar, body.popout .next-row { display: none !important; }
       body.popout .lesson { padding: 18px 28px; }
     </style>
   </head>
@@ -202,7 +164,8 @@
           <h1 id="title">Loading</h1>
           <div class="actions">
             <button id="popout-dock" class="icon-button popout-only" title="Re-dock lesson into the main window" aria-label="Re-dock lesson into the main window"></button>
-            <button id="popout-copy" class="icon-button popout-only" title="Copy the lesson's Markdown" aria-label="Copy the lesson's Markdown"></button>
+            <button id="copy-lesson" class="icon-button" title="Copy the lesson's Markdown" aria-label="Copy the lesson's Markdown"></button>
+            <button id="popout" class="icon-button" title="Open the lesson in its own window" aria-label="Open the lesson in its own window"></button>
             <label class="theme-group" title="Light or dark theme">
               <span id="moon" aria-hidden="true"></span>
               <span class="theme-switch">
@@ -214,53 +177,22 @@
           </div>
         </header>
 
-        <div class="source-pane">
-          <div class="tabs">
-            <button class="tab active" data-tab="source" type="button">Source</button>
-            <button class="tab" data-tab="lesson" type="button">Lesson</button>
-            <span class="tabs-right">
-              <button id="copy-source" class="icon-button" title="Copy the text of this tab" aria-label="Copy the text of this tab"></button>
-              <button id="popout" class="icon-button" title="Open the lesson in its own window" aria-label="Open the lesson in its own window"></button>
-            </span>
+        <div class="lesson-area">
+          <div id="lesson" class="lesson hidden" aria-live="polite"></div>
+          <div id="redock" class="redock hidden">
+            <p>This lesson is open in its own window.</p>
+            <button id="redock-button" class="primary" type="button">Re-dock lesson</button>
           </div>
-          <div class="source-area">
-            <div id="source" class="source">
-              <div class="source-bar">
-                <span id="source-name" class="source-name"></span>
-                <div class="source-actions">
-                  <span id="modified" class="modified" hidden>modified</span>
-                  <button id="reset-source" class="link-button" type="button" hidden>Reset</button>
-                  <button id="solutions-toggle" class="spoiler-toggle" type="button" hidden>Show solution (spoiler)</button>
-                </div>
-              </div>
-              <div class="code-area">
-                <pre id="gutter" class="gutter" aria-hidden="true"></pre>
-                <pre id="highlight" class="highlight" aria-hidden="true"></pre>
-                <textarea id="editor" class="editor" spellcheck="false" aria-label="Contents of this step's file" hidden></textarea>
-              </div>
-              <div id="solutions" class="solutions" hidden>
-                <p class="solutions-note">Read-only solution. Your own file is kept. Press Hide solution to return to it.</p>
-                <div id="solution-changes" class="solution-changes" hidden></div>
-                <div class="solutions-body"><pre id="solution-gutter" class="solution-gutter" aria-hidden="true"></pre><pre id="solution-code"></pre></div>
-              </div>
-              <p id="json-status" class="json-status" hidden></p>
-              <p id="no-source" class="no-source">This step has no file to show. Read the Lesson tab.</p>
-            </div>
-            <div id="lesson" class="lesson hidden" aria-live="polite"></div>
-            <div id="redock" class="redock hidden">
-              <p>This lesson is open in its own window.</p>
-              <button id="redock-button" class="primary" type="button">Re-dock lesson</button>
-            </div>
+        </div>
+
+        <div class="next-row">
+          <div class="nav-group">
+            <button id="previous" class="nav-button primary" type="button" disabled><span id="previous-icon" class="icon-slot"></span><span>Previous</span></button>
+            <span id="previous-hint" class="nav-hint"></span>
           </div>
-          <div class="next-row">
-            <div class="nav-group">
-              <button id="previous" class="nav-button primary" type="button" disabled><span id="previous-icon" class="icon-slot"></span><span>Previous</span></button>
-              <span id="previous-hint" class="nav-hint"></span>
-            </div>
-            <div class="nav-group">
-              <span id="next-hint" class="nav-hint"></span>
-              <button id="next" class="nav-button primary" type="button" disabled><span>Next</span><span id="next-icon" class="icon-slot"></span></button>
-            </div>
+          <div class="nav-group">
+            <span id="next-hint" class="nav-hint"></span>
+            <button id="next" class="nav-button primary" type="button" disabled><span>Next</span><span id="next-icon" class="icon-slot"></span></button>
           </div>
         </div>
       </section>

@@ -18,8 +18,6 @@ contextBridge.exposeInMainWorld('runner', {
   onProgressReset: (callback) => {
     ipcRenderer.on('progress:reset', () => callback());
   },
-  revealSolutions: (id) => ipcRenderer.invoke('solutions:reveal', id),
-  highlight: (code, language) => ipcRenderer.invoke('code:highlight', code, language),
   openExternal: (url) => ipcRenderer.invoke('link:open', url),
   popOutLesson: (id) => ipcRenderer.invoke('popout:open', id),
   popoutNavigated: (id) => ipcRenderer.invoke('popout:navigated', id),

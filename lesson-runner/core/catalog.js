@@ -2,8 +2,7 @@
 //
 // Finds the course's chapters and steps on disk, and works out the order a learner moves through them.
 // Chapters are folders named chNN-name at the course root. Each chapter has lesson.md (its introduction)
-// and step folders named NN-name, each with lesson.json and lesson.md. A step may name one file in its folder
-// for the Source pane. Nothing here reads or runs that file.
+// and step folders named NN-name, each with lesson.json and lesson.md. The runner shows lessons only.
 
 'use strict';
 
@@ -34,19 +33,6 @@ function listFolders(dir, pattern) {
     .sort();
 }
 
-// The file a step shows in its Source pane. It must be a plain file name in the step's own folder, and it must exist,
-// so a typo in lesson.json is reported when the course loads rather than shown as an empty pane.
-function sourceFileFor(stepDir, meta, stepFolder) {
-  if (meta.file === undefined || meta.file === null) return null;
-  if (typeof meta.file !== 'string' || meta.file !== path.basename(meta.file) || meta.file.length === 0) {
-    throw new Error(`${stepFolder}/lesson.json: "file" must be a file name in the step folder`);
-  }
-  if (!fs.existsSync(path.join(stepDir, meta.file))) {
-    throw new Error(`${stepFolder}/lesson.json names ${meta.file}, which is missing`);
-  }
-  return meta.file;
-}
-
 // Returns the chapters in folder-name order. Each chapter lists its introduction and its steps.
 function loadCatalog(courseRoot) {
   const chapters = [];
@@ -62,19 +48,13 @@ function loadCatalog(courseRoot) {
     const steps = listFolders(chapterDir, STEP_FOLDER).map((stepFolder) => {
       const stepDir = path.join(chapterDir, stepFolder);
       const meta = readJson(path.join(stepDir, 'lesson.json'));
-      const file = sourceFileFor(stepDir, meta, `${chapterFolder}/${stepFolder}`);
       return {
         id: `${chapterFolder}/${stepFolder}`,
         kind: 'step',
         title: meta.title,
         minutes: meta.minutes ?? null,
         objective: meta.objective ?? '',
-        spoiler: meta.spoiler === true,
-        section: meta.section ?? null,
         dir: stepDir,
-        // The Source pane shows this file. It can be edited only when edit is "file"; a file with edit "none" is read only.
-        file,
-        edit: file !== null && meta.edit === 'file' ? 'file' : 'none',
         markdownPath: path.join(stepDir, 'lesson.md'),
       };
     });

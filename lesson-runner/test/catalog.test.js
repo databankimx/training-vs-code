@@ -106,36 +106,3 @@ test('a step without lesson.json is reported with its path', () => {
   writeFile(path.join(root, 'ch01-first', '03-broken', 'lesson.md'), '# Broken\n');
   assert.throws(() => loadCatalog(root), /03-broken[\\/]lesson\.json|lesson\.json/);
 });
-
-test('every step in the real course has a title and an edit mode', () => {
-  for (const chapter of loadCatalog(courseRoot)) {
-    for (const step of chapter.steps) {
-      assert.ok(step.title, `${step.id} needs a title`);
-      assert.ok(['file', 'none'].includes(step.edit), `${step.id} needs edit "file" or "none"`);
-    }
-  }
-});
-
-test('a step names one file for the Source pane, read only unless edit is "file"', () => {
-  const root = makeTempCourse();
-  writeFile(path.join(root, 'ch01-first', '01-first', 'settings.json'), '{}\n');
-  writeFile(path.join(root, 'ch01-first', '02-second', 'settings.json'), '{}\n');
-  writeFile(path.join(root, 'ch01-first', '01-first', 'lesson.json'), JSON.stringify({ title: 'First Step', file: 'settings.json', edit: 'file' }));
-  writeFile(path.join(root, 'ch01-first', '02-second', 'lesson.json'), JSON.stringify({ title: 'Second Step', file: 'settings.json' }));
-  const steps = loadCatalog(root)[0].steps;
-  assert.equal(steps[0].file, 'settings.json');
-  assert.equal(steps[0].edit, 'file');
-  assert.equal(steps[1].edit, 'none', 'without edit "file" the file is read only');
-});
-
-test('a step whose file is missing is reported when the course loads', () => {
-  const root = makeTempCourse();
-  writeFile(path.join(root, 'ch01-first', '01-first', 'lesson.json'), JSON.stringify({ title: 'First Step', file: 'missing.json' }));
-  assert.throws(() => loadCatalog(root), /missing\.json/);
-});
-
-test('a step file must be a plain name in the step folder', () => {
-  const root = makeTempCourse();
-  writeFile(path.join(root, 'ch01-first', '01-first', 'lesson.json'), JSON.stringify({ title: 'First Step', file: '../secret.json' }));
-  assert.throws(() => loadCatalog(root), /plain name|file name/);
-});

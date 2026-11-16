@@ -1,7 +1,6 @@
 // test/readonly.test.js
 //
-// Checks the examples fence flags: "readonly" renders plain code with no editor, and a readonly block never becomes the
-// learner's file in the Source pane.
+// Checks the examples fence flags: "readonly" renders plain code with no editor and no Run button.
 
 'use strict';
 

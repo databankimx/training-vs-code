@@ -1,0 +1,4 @@
+{
+  "title": "Homework: remove the quotes from prices.py",
+  "objective": "Use multiple cursors to remove the quotes from every value in a list."
+}

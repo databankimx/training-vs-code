@@ -78,7 +78,9 @@ Most chapters have three kinds of material, and each is marked when it starts.
 
 - **Lessons** explain a feature and show it. Read them through once, then try the feature while the lesson is still open.
 - **Checklists** ask you to do something in VS Code and tick it off when it is done. The runner keeps your ticks, so you can stop and come back.
-- **Homework** asks you to change a file in the practice repository. Each homework step has a starter, and a worked solution behind a spoiler. Try the homework first. The solution is there when you are stuck, and reading it before you try teaches you much less.
+- **Homework** asks you to change a file in the practice repository, in VS Code itself. Each homework step shows its starter code, and a worked solution sits behind a spoiler. Try the homework first. The solution is there when you are stuck, and reading it before you try teaches you much less.
+
+This course teaches Visual Studio Code, so the runner has no code view, no Run button, and no editor. It shows the lessons only. Follow along in VS Code itself, and do each homework step in VS Code, in your practice folder.
 
 Shortcuts are shown in their Windows form, such as {{Ctrl+Shift+P}}. The appendix lists the Mac equivalents, and a note appears wherever a key differs.
 

@@ -44,4 +44,43 @@ flowchart TD
   F -->|No| H["Ctrl+/ comments it out"]
 ```
 
+## Example: moving an item in a list
+
+Here is a list of names in a Python file. The cursor is on the `"grace",` line:
+
+```python
+names = [
+    "ada",
+    "grace",
+    "linus",
+]
+```
+
+Press {{Alt+Up}}. The `grace` line swaps places with the `ada` line:
+
+```python
+names = [
+    "grace",
+    "ada",
+    "linus",
+]
+```
+
+The commas stay on their lines, so the list is still valid. You did not have to retype anything.
+
+## Example: copying a line to make a new one
+
+With the cursor on the `"linus",` line, press {{Shift+Alt+Down}}. VS Code copies the line below the original, and the cursor moves to the copy:
+
+```python
+names = [
+    "ada",
+    "grace",
+    "linus",
+    "linus",
+]
+```
+
+Change the copy to the name you need, and the list grows by one without retyping the other entries.
+
 ---

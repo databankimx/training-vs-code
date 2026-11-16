@@ -246,10 +246,35 @@ function addChecklistBoxes(md) {
   });
 }
 
+// A keyboard shortcut written as {{Ctrl+Shift+P}} is drawn as keycaps, one per key. Text inside code is not changed, because
+// the code is read first. A key name such as Ctrl+= or Alt+Up is split at each plus sign.
+function addKeycaps(md) {
+  md.inline.ruler.before('emphasis', 'keycaps', (state, silent) => {
+    if (state.src.charCodeAt(state.pos) !== 0x7b || state.src.charCodeAt(state.pos + 1) !== 0x7b) return false;
+    const end = state.src.indexOf('}}', state.pos + 2);
+    if (end === -1) return false;
+    const body = state.src.slice(state.pos + 2, end);
+    if (body.trim() === '' || body.includes('\n')) return false;
+    if (!silent) {
+      const token = state.push('keycaps', '', 0);
+      token.meta = { keys: body.split('+').map((key) => key.trim()) };
+    }
+    state.pos = end + 2;
+    return true;
+  });
+  md.renderer.rules.keycaps = (tokens, index) => {
+    const keys = tokens[index].meta.keys;
+    return keys
+      .map((key) => `<kbd>${md.utils.escapeHtml(key)}</kbd>`)
+      .join('<span class="key-plus">+</span>');
+  };
+}
+
 function createRenderer(options = {}) {
   const md = new MarkdownIt({ html: false, linkify: true, typographer: false, highlight: options.highlight || null });
   const defaultFence = md.renderer.rules.fence;
   addChecklistBoxes(md);
+  addKeycaps(md);
 
   md.renderer.rules.fence = (tokens, index, options, env, self) => {
     const token = tokens[index];

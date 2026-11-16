@@ -6,7 +6,7 @@ Open Folder makes a folder the project you are working on. Choose File, then Ope
 
 *Figure 3.1 - Open Folder in the File menu*
 
-The shortcut is Ctrl+K, then Ctrl+O, pressed one after the other. You do not need to hold the keys together.
+The shortcut is {{Ctrl+K}}, then {{Ctrl+O}}, pressed one after the other. You do not need to hold the keys together.
 
 ```mermaid
 flowchart TD

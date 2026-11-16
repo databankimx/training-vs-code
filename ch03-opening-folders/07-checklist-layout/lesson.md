@@ -1,6 +1,6 @@
 # Checklist: layout
 
-Work through this list in the course folder. Put the window back the way you found it when you finish.
+Work through this list in the practice folder. Put the window back the way you found it when you finish.
 
 - [ ] Ctrl+Shift+P opens the command palette, and a search for "zen" finds Zen Mode.
 - [ ] Ctrl+B hides the side bar, and Ctrl+B shows it again.
@@ -9,6 +9,6 @@ Work through this list in the course folder. Put the window back the way you fou
 - [ ] You entered Zen Mode with Ctrl+K, then Z, and left it with Esc twice.
 - [ ] You zoomed in with Ctrl+=, and back to the default with Ctrl+0.
 
-Chapter 4 starts editing text, and it uses the same course folder.
+Chapter 4 starts editing text, in the same practice folder.
 
 ---

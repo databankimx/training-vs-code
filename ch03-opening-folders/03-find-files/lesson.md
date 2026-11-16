@@ -20,6 +20,6 @@ The Explorer is the top icon in the activity bar on the left. It shows the open 
 
 *Figure 3.3 - The Explorer with a folder expanded*
 
-If the Explorer is not showing, press Ctrl+Shift+E to bring it up. Right-clicking an item in the Explorer gives you the usual file actions, such as New File and Rename. You do not need those yet, so leave the course folder as it is.
+If the Explorer is not showing, press Ctrl+Shift+E to bring it up. Right-clicking an item in the Explorer gives you the usual file actions, such as New File and Rename. You do not need those yet, so leave the practice folder as it is.
 
 ---

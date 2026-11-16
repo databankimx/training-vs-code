@@ -1,0 +1,4 @@
+{
+  "title": "Find and Replace",
+  "objective": "Find text in the open file, step through the matches, and replace them with the options that keep the change exact."
+}

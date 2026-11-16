@@ -1,0 +1,4 @@
+{
+  "title": "Homework: rename add to plus in calculator.py",
+  "objective": "Rename the add function and each place that calls it, using Find and Replace with Match Whole Word, so that no other text changes."
+}

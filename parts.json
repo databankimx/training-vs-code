@@ -13,7 +13,8 @@
       "title": "Part II - Editing Code",
       "chapters": [
         "ch04-typing-and-moving-text",
-        "ch05-multiple-cursors"
+        "ch05-multiple-cursors",
+        "ch06-finding-replacing-navigating"
       ]
     }
   ]

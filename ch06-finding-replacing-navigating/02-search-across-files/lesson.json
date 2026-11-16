@@ -1,0 +1,4 @@
+{
+  "title": "Searching across files",
+  "objective": "Search every file in the practice folder, narrow the search with include and exclude patterns, and open a result."
+}

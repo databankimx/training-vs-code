@@ -400,6 +400,13 @@ if ($manifest.requirePowerShell7) {
     Stop-Setup "setup.json needs PowerShell 7, which this version of the script doesn't support yet."
 }
 
+# Entries marked elevated need an administrator window. Fail now, before anything is installed.
+$elevatedItems = @($manifest.requirements | Where-Object { $_.elevated })
+if ($elevatedItems.Count -gt 0 -and -not $SkipInstall -and -not (Test-Admin)) {
+    $names = ($elevatedItems | ForEach-Object { $_.id }) -join ", "
+    Stop-Setup "This tutorial needs an administrator window to install: $names. Open PowerShell as Administrator, then run this script again. Nothing was installed."
+}
+
 Write-Step "$($manifest.name)"
 Write-Note "Course folder: $repo"
 

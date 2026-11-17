@@ -11,7 +11,8 @@
       "checkFiles": [
         "%SystemRoot%\\System32\\VCRUNTIME140.dll",
         "%SystemRoot%\\System32\\MSVCP140.dll"
-      ]
+      ],
+      "elevated": true
     },
     {
       "kind": "winget",

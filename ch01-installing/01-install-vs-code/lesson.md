@@ -61,3 +61,14 @@ When it finishes, open PowerShell 7 from the Start menu. Chapter 8 shows how to 
 Open the Help menu and choose About. Write down the version number. The course records the version its screenshots were taken with, and when your version is different, the pictures may show small differences from your screen. That is normal, and the lessons say what to look for.
 
 ---
+
+## If you cannot install software or run scripts
+
+Some computers are managed by an employer or a school, and they do not let you install programs or run scripts. If your computer is like that, you will not be able to finish the install steps on it, and you should not try to get around the restriction. Do this instead:
+
+- Ask the person who manages the computer to install Visual Studio Code for you. Tell them the program is Visual Studio Code from Microsoft, and that its download page is code.visualstudio.com.
+- Ask whether the setup script can run. If it cannot, the by-hand steps in this chapter still apply, once VS Code is installed. The script saves time, but you do not need it.
+- If the setup script is blocked, skip it and go to the First launch step. Chapter 8 explains the execution policy setting that the script's run command depends on. A managed computer may not allow that setting to change, so you may not be able to follow Chapter 8 either. If that happens, the chapter's other steps still work.
+
+If you are not sure whether your computer is managed, try the winget command above. If it asks for a password or fails with a message about permissions, the computer is probably managed.
+

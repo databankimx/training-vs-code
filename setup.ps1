@@ -203,18 +203,17 @@ function Find-BuildTools {
     return $null
 }
 
-# Loads the C++ build environment from vcvars64.bat into this session.
-function Import-VcEnvironment([string]$Vcvars) {
-    $output = cmd.exe /c "`"$Vcvars`" >nul && set"
-    foreach ($line in $output) {
-        if ($line -match '^([A-Za-z_][A-Za-z0-9_]*)=(.*)$') {
-            [Environment]::SetEnvironmentVariable($Matches[1], $Matches[2], "Process")
-        }
-    }
-}
-
 function Test-ElectronBinary([string]$RunnerDir) {
     return (Test-Path (Join-Path $RunnerDir "node_modules\electron\dist\electron.exe"))
+}
+
+# Finds the newest Visual Studio install's devenv.exe, or returns $null.
+function Find-VisualStudio {
+    $vswhere = Join-Path ${env:ProgramFiles(x86)} "Microsoft Visual Studio\Installer\vswhere.exe"
+    if (-not (Test-Path $vswhere)) { return $null }
+    $devenv = & $vswhere -latest -products "*" -property productPath | Select-Object -First 1
+    if ($devenv -and (Test-Path $devenv)) { return $devenv }
+    return $null
 }
 
 # ---------------------------------------------------------------------------------------------
@@ -422,37 +421,19 @@ else {
         Set-Result "Electron" "present"
     }
     else {
-        Invoke-Tool "node" @("node_modules\electron\install.js") $runner | Out-Null
+        # Electron downloads a prebuilt zip and extracts it. A C++ compiler can't fix that, so there is
+        # no Build Tools fallback here. A failed download is often a brief network problem, so try twice.
+        foreach ($attempt in 1..2) {
+            Write-Note "Downloading Electron (attempt $attempt of 2)."
+            Invoke-Tool "node" @("node_modules\electron\install.js") $runner | Out-Null
+            if (Test-ElectronBinary $runner) { break }
+        }
         if (Test-ElectronBinary $runner) {
             Set-Result "Electron" "downloaded"
         }
         else {
-            Write-Note "Electron didn't download. Trying the C++ Build Tools fallback."
-            $vcvars = Find-BuildTools
-            if (-not $vcvars) {
-                if (Test-Admin) {
-                    try {
-                        Install-WingetPackage "Microsoft.VisualStudio.2022.BuildTools" "--wait --quiet --norestart --add Microsoft.VisualStudio.Workload.VCTools --includeRecommended"
-                        $vcvars = Find-BuildTools
-                    }
-                    catch { Add-Problem $_.Exception.Message }
-                }
-                else {
-                    Add-Problem "Electron couldn't download, and the C++ Build Tools need an administrator window. Open PowerShell as Administrator and run this script again."
-                }
-            }
-            if ($vcvars) {
-                Import-VcEnvironment $vcvars
-                Invoke-Tool "npm.cmd" @("rebuild", "electron") $runner | Out-Null
-                Invoke-Tool "node" @("node_modules\electron\install.js") $runner | Out-Null
-            }
-            if (Test-ElectronBinary $runner) {
-                Set-Result "Electron" "downloaded after fallback"
-            }
-            else {
-                Set-Result "Electron" "failed"
-                Add-Problem "Electron still isn't installed. Check your network connection, then run this script again."
-            }
+            Set-Result "Electron" "failed"
+            Add-Problem "Electron couldn't be downloaded. The error above shows why. A proxy, firewall, or antivirus that blocks GitHub is the usual cause. Fix the network, then run this script again."
         }
     }
 }
@@ -519,11 +500,36 @@ Write-Step "Open the course"
 if ($NoLaunch -or $SkipInstall) {
     Write-Note "Skipped (-NoLaunch or -SkipInstall)."
 }
+elseif ($script:Problems.Count -gt 0) {
+    Write-Note "Not opening the course, because setup didn't finish. Fix the problems above, then run this script again."
+}
 else {
-    if ($manifest.launch.openRepo -and $codeExe) {
-        Start-Process -FilePath $codeExe -ArgumentList "`"$repo`""
-        Set-Result "VS Code" "opened the course"
+    $ide = $manifest.launch.ide
+    if (-not $ide) { $ide = "vscode" }
+
+    if ($ide -eq "visualStudio") {
+        $devenv = Find-VisualStudio
+        if (-not $devenv) {
+            Set-Result "Visual Studio" "not found"
+            Add-Problem "Visual Studio wasn't found, so the course couldn't be opened in it. Install Visual Studio, then run this script again."
+        }
+        else {
+            $target = $repo
+            if ($manifest.launch.solution) { $target = Join-Path $repo $manifest.launch.solution }
+            Start-Process -FilePath $devenv -ArgumentList "`"$target`""
+            Set-Result "Visual Studio" "opened the course"
+        }
     }
+    elseif ($ide -eq "vscode") {
+        if ($manifest.launch.openRepo -and $codeExe) {
+            Start-Process -FilePath $codeExe -ArgumentList "`"$repo`""
+            Set-Result "VS Code" "opened the course"
+        }
+    }
+    else {
+        Add-Problem "setup.json names an unknown IDE: $ide."
+    }
+
     if ($manifest.launch.kind -eq "electron") {
         $runnerDir = Join-Path $repo $manifest.launch.folder
         $electronExe = Join-Path $runnerDir "node_modules\electron\dist\electron.exe"

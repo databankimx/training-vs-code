@@ -61,6 +61,10 @@ $WingetSuccessCodes = @(0, 3010, -1978335189)
 
 $script:Results  = [ordered]@{}
 $script:Problems = New-Object System.Collections.Generic.List[string]
+$script:FailedOutput = New-Object System.Collections.Generic.List[string]
+$script:LogPath = $null
+$script:LogTitle = "Course setup"
+$script:StopMessage = $null
 
 # ---------------------------------------------------------------------------------------------
 # Output and state helpers
@@ -83,9 +87,43 @@ function Add-Problem([string]$Text) {
     $script:Problems.Add($Text)
 }
 
+function Write-SetupLog {
+    if (-not $script:LogPath) { return }
+    $lines = New-Object System.Collections.Generic.List[string]
+    $lines.Add("Setup log for $($script:LogTitle)")
+    $lines.Add("Run: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')   Computer: $env:COMPUTERNAME   Elevated: $(Test-Admin)")
+    if ($script:StopMessage) {
+        $lines.Add("")
+        $lines.Add("Stopped: $($script:StopMessage)")
+    }
+    $lines.Add("")
+    $lines.Add("Summary")
+    foreach ($key in $script:Results.Keys) {
+        $lines.Add(("  {0,-34} {1}" -f $key, $script:Results[$key]))
+    }
+    if ($script:Problems.Count -gt 0) {
+        $lines.Add("")
+        $lines.Add("Action needed")
+        foreach ($problem in $script:Problems) { $lines.Add("  - $problem") }
+    }
+    if ($script:FailedOutput.Count -gt 0) {
+        $lines.Add("")
+        $lines.Add("Output from failed commands")
+        foreach ($line in $script:FailedOutput) { $lines.Add($line) }
+    }
+    try {
+        Set-Content -Path $script:LogPath -Value $lines -Encoding UTF8
+    }
+    catch {
+        Write-Host "Couldn't write $($script:LogPath): $($_.Exception.Message)" -ForegroundColor Yellow
+    }
+}
+
 function Stop-Setup([string]$Message) {
     Write-Host ""
     Write-Host "Setup stopped: $Message" -ForegroundColor Red
+    $script:StopMessage = $Message
+    Write-SetupLog
     exit 1
 }
 
@@ -102,6 +140,7 @@ function Show-Summary {
             Write-Host "  - $problem"
         }
     }
+    Write-SetupLog
 }
 
 # ---------------------------------------------------------------------------------------------
@@ -133,8 +172,13 @@ function Invoke-Tool {
     try {
         if ($WorkingDirectory) { Push-Location $WorkingDirectory }
         try {
-            & $File @Arguments | Out-Host
-            return $LASTEXITCODE
+            & $File @Arguments 2>&1 | ForEach-Object { "$_" } | Tee-Object -Variable captured | Out-Host
+            $code = $LASTEXITCODE
+            if ($code -ne 0) {
+                $script:FailedOutput.Add("$File $($Arguments -join ' ') (exit code $code)")
+                foreach ($line in @($captured | Select-Object -Last 40)) { $script:FailedOutput.Add("    $line") }
+            }
+            return $code
         }
         finally {
             if ($WorkingDirectory) { Pop-Location }
@@ -384,7 +428,10 @@ if (-not $inCourse) {
 # ---------------------------------------------------------------------------------------------
 
 $repo = $here
+$script:LogPath = Join-Path $repo "setup.log"
 $manifest = Get-Content -Raw -Path (Join-Path $repo "setup.json") | ConvertFrom-Json
+
+$script:LogTitle = $manifest.name
 
 if ($manifest.repoUrl -ne $BootstrapRepoUrl) {
     Write-Host "Warning: setup.json names $($manifest.repoUrl), but this script's bootstrap names $BootstrapRepoUrl." -ForegroundColor Yellow

@@ -6,6 +6,14 @@
   "requirePowerShell7": false,
   "requirements": [
     {
+      "kind": "vcRuntime",
+      "id": "Microsoft.VCRedist.2015+.x64",
+      "checkFiles": [
+        "%SystemRoot%\\System32\\VCRUNTIME140.dll",
+        "%SystemRoot%\\System32\\MSVCP140.dll"
+      ]
+    },
+    {
       "kind": "winget",
       "id": "Git.Git",
       "check": "git",

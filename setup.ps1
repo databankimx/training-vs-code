@@ -291,6 +291,36 @@ function Invoke-BuildToolsRequirement($Requirement) {
     }
 }
 
+# The Visual C++ runtime. Electron's extractor needs it, and its installer is machine-wide.
+function Invoke-RuntimeRequirement($Requirement) {
+    $name = "Visual C++ runtime"
+    $missing = @($Requirement.checkFiles | Where-Object { -not (Test-Path ([Environment]::ExpandEnvironmentVariables($_))) })
+    if ($missing.Count -eq 0) {
+        Set-Result $name "present"
+        return
+    }
+    if ($SkipInstall) {
+        Set-Result $name "missing"
+        Add-Problem "The Visual C++ runtime is missing. Open PowerShell as Administrator and run: winget install --id $($Requirement.id) --exact"
+        return
+    }
+    if (-not (Test-Admin)) {
+        Set-Result $name "needs an administrator window"
+        Add-Problem "The Visual C++ runtime needs an administrator window. Open PowerShell as Administrator and run this script again."
+        return
+    }
+    try {
+        Install-WingetPackage $Requirement.id
+        $missing = @($Requirement.checkFiles | Where-Object { -not (Test-Path ([Environment]::ExpandEnvironmentVariables($_))) })
+        if ($missing.Count -eq 0) { Set-Result $name "installed" }
+        else { Set-Result $name "installed, still missing files"; Add-Problem "The Visual C++ runtime was installed, but its files aren't in place. Restart the computer and run this script again." }
+    }
+    catch {
+        Set-Result $name "failed"
+        Add-Problem $_.Exception.Message
+    }
+}
+
 # ---------------------------------------------------------------------------------------------
 # Bootstrap: get the course, then run its copy of this script
 # ---------------------------------------------------------------------------------------------
@@ -378,6 +408,7 @@ foreach ($requirement in $manifest.requirements) {
     switch ($requirement.kind) {
         "winget"     { Invoke-WingetRequirement $requirement }
         "buildTools" { Invoke-BuildToolsRequirement $requirement }
+        "vcRuntime"  { Invoke-RuntimeRequirement $requirement }
         default      { Stop-Setup "setup.json has an unknown requirement kind: $($requirement.kind)." }
     }
 }
@@ -392,7 +423,17 @@ if ($SkipInstall) {
     Write-Note "Skipped (-SkipInstall)."
 }
 else {
-    Write-Step "Packages"
+    Update-SessionPath
+$nodeExe = Find-Program "node" @("%ProgramFiles%\nodejs\node.exe")
+$nodeCmd = "node"
+$npmCmd  = "npm.cmd"
+if ($nodeExe) {
+    $nodeCmd = $nodeExe
+    $npmBeside = Join-Path (Split-Path $nodeExe) "npm.cmd"
+    if (Test-Path $npmBeside) { $npmCmd = $npmBeside }
+}
+
+Write-Step "Packages"
     foreach ($project in $manifest.npm) {
         $dir = Join-Path $repo $project.folder
         if (-not (Test-Path (Join-Path $dir "package.json"))) {
@@ -406,7 +447,7 @@ else {
         # without repeating the whole install.
         $env:ELECTRON_SKIP_BINARY_DOWNLOAD = "1"
         try {
-            $code = Invoke-Tool "npm.cmd" @($mode, "--no-audit", "--no-fund") $dir
+            $code = Invoke-Tool $npmCmd @($mode, "--no-audit", "--no-fund") $dir
         }
         finally {
             Remove-Item Env:ELECTRON_SKIP_BINARY_DOWNLOAD -ErrorAction SilentlyContinue
@@ -425,7 +466,7 @@ else {
         # no Build Tools fallback here. A failed download is often a brief network problem, so try twice.
         foreach ($attempt in 1..2) {
             Write-Note "Downloading Electron (attempt $attempt of 2)."
-            Invoke-Tool "node" @("node_modules\electron\install.js") $runner | Out-Null
+            Invoke-Tool $nodeCmd @("node_modules\electron\install.js") $runner | Out-Null
             if (Test-ElectronBinary $runner) { break }
         }
         if (Test-ElectronBinary $runner) {
@@ -490,7 +531,7 @@ if ($RunTests) {
     foreach ($project in $manifest.npm) {
         if (-not $project.test) { continue }
         $dir = Join-Path $repo $project.folder
-        $code = Invoke-Tool "npm.cmd" @("test") $dir
+        $code = Invoke-Tool $npmCmd @("test") $dir
         if ($code -eq 0) { Set-Result "tests $($project.folder)" "passed" }
         else { Set-Result "tests $($project.folder)" "failed"; Add-Problem "Tests failed in $($project.folder)." }
     }

@@ -21,7 +21,8 @@
     {
       "title": "Part III - Running and Checking",
       "chapters": [
-        "ch08-terminal-and-tasks"
+        "ch08-terminal-and-tasks",
+        "ch09-running-debugging-testing"
       ]
     }
   ]

@@ -9,7 +9,7 @@ VS Code decides what kind of file you are editing from its extension, such as `.
 Language support comes from extensions. The features in this chapter need these:
 
 - **JavaScript:** built in. The editor reads JavaScript files without an extra install.
-- **Python:** the Python extension, from Microsoft. It adds completion, error checking, and navigation for Python files.
+- **Python:** the Python extension, from Microsoft. It adds completion, error checking, and navigation for Python files. It needs the Python you installed in the previous step.
 - **C#:** the C# extension, and the .NET SDK, which holds the compiler. The practice repository's C# project targets .NET 10. Download the SDK from dot.net, and use the default options.
 
 ## Installing the Python extension
@@ -20,11 +20,13 @@ Chapter 19 explains the Extensions view in full, including how to disable an ext
 
 ## Choosing the interpreter
 
-Python code runs with an interpreter, the program that reads your `.py` file. The Python extension needs to know which one to use, so that completion and error checking match the version you run. Press {{Ctrl+Shift+P}}, type `Python: Select Interpreter`, and press {{Enter}}. Choose the interpreter you installed.
+Python code runs with an interpreter, the program that reads your `.py` file. The Python extension needs to know which one to use, so that completion and error checking match the version you run. Press {{Ctrl+Shift+P}}, type `Python: Select Interpreter`, and press {{Enter}}. Choose the `.venv` entry, which is the environment you created in the previous step.
 
-A project often keeps its own copy of Python in a folder called `.venv`. If the list shows a `.venv` entry for the project, choose it, because it holds the packages that project needs. You do not need a `.venv` for the practice repository.
+Check the status bar after you choose. It shows the name of the interpreter, so you can confirm that it is the `.venv` one. VS Code usually activates the selected environment in new terminals too, so the `(.venv)` prompt appears there without the activate command.
 
-> **No interpreter in the list?** Python is not installed, or VS Code cannot find it. Install Python from python.org, or ask your course contact. Completion and error checking for Python need an interpreter, so this step is needed before the homework.
+> **No `.venv` in the list?** Check that the environment is in the practice folder, the folder VS Code has open, and that it is named `.venv`. Then close the list and open it again. Completion and error checking for Python need an interpreter, so this step is needed before the homework.
+
+> **uv prompt:** when you install the Python extension, VS Code may offer to install uv and a Python for you. uv is a fast tool for managing Python packages. This course does not need it, because the environment from the previous step already works. Choose not to install uv for this course.
 
 ## Example: checking that Python is set up
 

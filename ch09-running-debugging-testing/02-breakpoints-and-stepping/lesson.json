@@ -1,0 +1,4 @@
+{
+  "title": "Breakpoints and stepping",
+  "objective": "Set a breakpoint, debug one test from the Testing view, step through the code, and inspect values while it is paused."
+}

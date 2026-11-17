@@ -18,6 +18,12 @@ Cloning copies a repository, with its full history, to your computer. VS Code gi
 
 **From the Command Palette.** Press {{Ctrl+Shift+P}}, type `Git: Clone`, and press Enter. This works at any time, even when a folder is already open. The two buttons above are quicker when they are on screen.
 
+The More Actions menu in the Source Control view, the three dots at the top right, also lists Clone. Use it when the view is already open and you want the menu's other Git actions next to it.
+
+![Figure 11.5 - The More Actions menu in the Source Control view](images/ch11-source-control-more-menu.png "width=35%")
+
+*Figure 11.5 - The More Actions menu in the Source Control view*
+
 ## Choose a source
 
 Whichever way you start, VS Code asks where the repository is. You can paste a URL into the box. You can also choose Clone from GitHub, which lists the repositories your GitHub account can reach, including the ones in every GitHub organization you belong to.

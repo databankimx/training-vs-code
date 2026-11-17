@@ -1,0 +1,4 @@
+{
+  "title": "Pulling",
+  "objective": "Pull the remote's commits into your branch, and check the result with git log."
+}

@@ -29,7 +29,8 @@
       "title": "Part IV - Source Control",
       "chapters": [
         "ch10-source-control-panel",
-        "ch11-cloning-branches-stashing"
+        "ch11-cloning-branches-stashing",
+        "ch12-fetch-pull-push"
       ]
     }
   ]

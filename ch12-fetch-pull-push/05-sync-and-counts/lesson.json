@@ -1,0 +1,4 @@
+{
+  "title": "Sync and the status bar counts",
+  "objective": "Read the outgoing and incoming counts in the status bar, and use Sync Changes to pull and push in one step."
+}

@@ -121,15 +121,15 @@ function renderQuiz(md, source) {
     .map(
       (choice) =>
         `<div class="quiz-choice" data-correct="${choice.correct ? 'true' : 'false'}">` +
-        `<label><input type="radio" name="${name}"> <span>${escape(choice.text)}</span></label>` +
-        `<div class="quiz-explain" hidden>${escape(choice.feedback)}</div>` +
+        `<label><input type="radio" name="${name}"> <span>${md.renderInline(choice.text)}</span></label>` +
+        `<div class="quiz-explain" hidden>${md.renderInline(choice.feedback)}</div>` +
         `</div>`,
     )
     .join('\n');
 
   return (
     `<div class="quiz" data-quiz>\n` +
-    `<div class="quiz-question"><p>${escape(quiz.question)}</p></div>\n` +
+    `<div class="quiz-question"><p>${md.renderInline(quiz.question)}</p></div>\n` +
     `<div class="quiz-choices">\n${choices}\n</div>\n` +
     `<div class="quiz-status" aria-live="polite"></div>\n` +
     `</div>\n`

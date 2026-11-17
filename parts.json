@@ -24,6 +24,13 @@
         "ch08-terminal-and-tasks",
         "ch09-running-debugging-testing"
       ]
+    },
+    {
+      "title": "Part IV - Source Control",
+      "chapters": [
+        "ch10-source-control-panel",
+        "ch11-cloning-branches-stashing"
+      ]
     }
   ]
 }

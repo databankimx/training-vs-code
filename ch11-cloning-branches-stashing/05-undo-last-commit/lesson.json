@@ -1,0 +1,4 @@
+{
+  "title": "Undoing the last commit",
+  "objective": "Undo the last commit and keep its changes staged, so you can fix the message or the files and commit again."
+}

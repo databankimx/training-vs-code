@@ -14,7 +14,14 @@
       "chapters": [
         "ch04-typing-and-moving-text",
         "ch05-multiple-cursors",
-        "ch06-finding-replacing-navigating"
+        "ch06-finding-replacing-navigating",
+        "ch07-intellisense-refactoring-languages"
+      ]
+    },
+    {
+      "title": "Part III - Running and Checking",
+      "chapters": [
+        "ch08-terminal-and-tasks"
       ]
     }
   ]

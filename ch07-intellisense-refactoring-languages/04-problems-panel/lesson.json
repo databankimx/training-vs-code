@@ -1,0 +1,4 @@
+{
+  "title": "The Problems panel",
+  "objective": "Open the Problems panel, read its list of errors and warnings, and jump from an entry to its line."
+}

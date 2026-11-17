@@ -1,0 +1,4 @@
+{
+  "title": "Rename Symbol and Quick Fix",
+  "objective": "Rename a symbol everywhere it is used with a preview, and use Quick Fix to apply a suggested repair."
+}

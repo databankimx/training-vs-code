@@ -1,0 +1,4 @@
+{
+  "title": "Starting with extensions disabled",
+  "objective": "Start VS Code with no extensions, to see whether an extension causes a problem."
+}

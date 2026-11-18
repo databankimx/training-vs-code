@@ -2,38 +2,23 @@
   "parts": [
     {
       "title": "Part I - Getting Around",
-      "chapters": [
-        "ch00-introduction",
-        "ch01-installing",
-        "ch02-accounts",
-        "ch03-opening-folders"
-      ]
+      "chapters": ["ch00-introduction", "ch01-installing", "ch02-accounts", "ch03-opening-folders"]
     },
     {
       "title": "Part II - Editing Code",
-      "chapters": [
-        "ch04-typing-and-moving-text",
-        "ch05-multiple-cursors",
-        "ch06-finding-replacing-navigating",
-        "ch07-intellisense-refactoring-languages"
-      ]
+      "chapters": ["ch04-typing-and-moving-text", "ch05-multiple-cursors", "ch06-finding-replacing-navigating", "ch07-intellisense-refactoring-languages"]
     },
     {
       "title": "Part III - Running and Checking",
-      "chapters": [
-        "ch08-terminal-and-tasks",
-        "ch09-running-debugging-testing"
-      ]
+      "chapters": ["ch08-terminal-and-tasks", "ch09-running-debugging-testing"]
     },
     {
       "title": "Part IV - Source Control",
-      "chapters": [
-        "ch10-source-control-panel",
-        "ch11-cloning-branches-stashing",
-        "ch12-fetch-pull-push",
-        "ch13-merge-conflicts",
-        "ch14-history-and-blame"
-      ]
+      "chapters": ["ch10-source-control-panel", "ch11-cloning-branches-stashing", "ch12-fetch-pull-push", "ch13-merge-conflicts", "ch14-history-and-blame", "ch15-pull-requests-and-issues"]
+    },
+    {
+      "title": "Part V - Copilot and Extensions",
+      "chapters": ["ch16-setting-up-copilot", "ch17-suggestions-and-chat", "ch18-checking-what-copilot-writes", "ch19-extensions"]
     }
   ]
 }

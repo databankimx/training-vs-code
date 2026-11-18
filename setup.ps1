@@ -41,10 +41,9 @@ param(
 $ErrorActionPreference = "Stop"
 
 # Bootstrap values. They match setup.json, and the script warns if they differ after cloning.
-# TEMPORARY: $BootstrapBranch is "dev" for the clean VM test. Change it to "main" after the test passes,
-# and change "branch" in setup.json to match.
+# $BootstrapBranch is "main". The clean VM test ran against "dev" before this change.
 $BootstrapRepoUrl = "https://github.com/databankimx/training-vs-code.git"
-$BootstrapBranch  = "dev"
+$BootstrapBranch  = "main"
 
 # Extensions the course has approved. The script installs only IDs on this list.
 # Confirm each ID against the Marketplace before release.

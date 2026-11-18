@@ -2,7 +2,7 @@
   "name": "Working With Visual Studio Code",
   "folder": "training-vs-code",
   "repoUrl": "https://github.com/databankimx/training-vs-code.git",
-  "branch": "dev",
+  "branch": "main",
   "requirePowerShell7": false,
   "requirements": [
     {

@@ -1,0 +1,4 @@
+{
+  "title": "Homework: recommend the Pylint extension",
+  "objective": "Add the Pylint extension to .vscode/extensions.json, and check that the Recommended section lists it."
+}

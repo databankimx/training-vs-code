@@ -4,7 +4,7 @@ A column selection picks a rectangle of text across several lines, rather than a
 
 To make one, hold {{Shift+Alt}}, then drag the mouse across the lines. The selection covers the same columns on each line. Release the mouse, and everything you type or delete applies to every line in the selection.
 
-![Figure 5.5 - A column selection across several lines of text](images/ch05-column-selection.png)
+![Figure 5.5 - A column selection across several lines of text](images/ch05-column-selection.png "width=30%")
 
 *Figure 5.5 - A column selection across several lines of text*
 

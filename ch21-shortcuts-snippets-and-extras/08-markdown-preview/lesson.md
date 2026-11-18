@@ -8,6 +8,10 @@ Open `README.md` in your practice folder. Press {{Ctrl+Shift+V}} to open the pre
 
 For side-by-side work, press {{Ctrl+K}}, let go, then press {{V}}. The preview opens beside the source, and it updates as you type. This is the view to use when you are writing a long document.
 
+![Figure 21.4 - The Markdown split preview](images/ch21-markdown-split-preview.png)
+
+*Figure 21.4 - A Markdown file with the preview open beside it*
+
 ## Why it helps
 
 A list with the wrong indent, or a link with a missing bracket, can look fine in the source and broken in the preview. Checking the preview catches that before a reader does.

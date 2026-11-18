@@ -6,6 +6,10 @@ A chord is a shortcut made of two presses, one after the other. VS Code uses man
 
 Press {{Ctrl+K}}, and let go. The status bar says that Ctrl+K was pressed and is waiting for the second key. Press {{Ctrl+C}} to comment out the current line. Press {{Ctrl+K}}, then {{Ctrl+U}}, to remove the comment.
 
+![Figure 21.2 - The chord indicator](images/ch21-chord-indicator.png "width=60%")
+
+*Figure 21.2 - VS Code waiting for the second key of a chord*
+
 Another useful chord is {{Ctrl+K}} then {{V}}, which opens a Markdown preview beside the source file. It is the one to use when you edit a README. The Markdown preview lesson covers it in full.
 
 If the second key is not part of the chord, VS Code cancels the chord and nothing happens. That is not an error. Press {{Esc}} to cancel a chord you started by mistake.

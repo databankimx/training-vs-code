@@ -54,5 +54,33 @@ def is_leap_year(year):
 
 Run the checks again, and they pass. Keep the fix and the tests together in the commit, so the next reviewer can see what was checked.
 
+## A claim can be wrong too
+
+Copilot also explains code, and an explanation is a claim you can check. Here is a chat exchange about the `total` function in `prices.py`:
+
+![Figure 18.1 - Copilot says total(prices) returns 44.25, which is the right sum, but the code in the editor does not do that](images/ch18-wrong-claim.png)
+
+*Figure 18.1 - Copilot says total(prices) returns 44.25, which is the right sum, but the code in the editor does not do that*
+
+The function is:
+
+```python
+def total(price_list):
+    total_price = 0.0
+    for price in price_list:
+        total_price = float(price)
+    return total_price
+```
+
+Copilot's answer sounds right, and the sum is right: 12.50 + 8.00 + 3.75 + 20.00 is 44.25. Do not stop there. Run the function on the same list:
+
+```python
+print(total(["12.50", "8.00", "3.75", "20.00"]))
+```
+
+The output is `20.0`, not `44.25`. The loop itself is fine. The bug is on line 19: `total_price = float(price)` replaces the total on every pass, instead of adding to it, so the function keeps only the last price. The fix is `total_price += float(price)`.
+
+The claim was wrong, and the code was the thing to trust. Check every explanation the same way you check a suggestion.
+
 > **Test with your own examples.** A test Copilot wrote can agree with the suggestion. Write at least one check yourself.
 

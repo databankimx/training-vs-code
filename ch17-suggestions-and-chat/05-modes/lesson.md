@@ -2,6 +2,10 @@
 
 The chat panel has a mode selector. Each mode gives Copilot a different amount of say over your files. Choosing a mode is a safety decision, not just a preference.
 
+![Figure 17.4 - The mode selector](images/ch17-mode-selector.png "width=50%")
+
+*Figure 17.4 - The mode selector, showing Ask, Edit, and Agent*
+
 ## Ask
 
 Ask answers questions and changes nothing.

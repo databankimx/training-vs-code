@@ -6,6 +6,10 @@ When the Output panel does not explain a problem, look at the logs. They record 
 
 Press {{Ctrl+Shift+P}}, type `Developer: Show Logs...`, and press {{Enter}}. A list of log types appears. The list depends on your build, but it usually includes a main log, an extension host log, and one for the renderer, which is the part that draws the window. Open the one that matches the problem. For a feature that does not load, the extension host log is usually the one to check.
 
+![Figure 22.2 - Developer: Show Logs in the Command Palette](images/ch22-developer-show-logs.png)
+
+*Figure 22.2 - The Command Palette with Developer: Show Logs... highlighted*
+
 ## Reload the window
 
 Some problems clear when the window restarts, such as an extension that stopped responding. Press {{Ctrl+Shift+P}}, type `Developer: Reload Window`, and press {{Enter}}.

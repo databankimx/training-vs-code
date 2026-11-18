@@ -8,7 +8,7 @@ You do not need to change this file in this lesson. The homework next lesson doe
 
 Press {{Ctrl+Shift+D}} to open the Run and Debug view. If the practice folder has no `launch.json` yet, the view says so and offers a link called `create a launch.json file`. Choose it, and pick Python if VS Code asks. Once the file exists, the view's dropdown lists its configurations, and {{F5}} starts the one that is selected.
 
-![Figure 9.5 - The Run and Debug view with its configuration dropdown](images/ch09-launch-json.png)
+![Figure 9.5 - The Run and Debug view with its configuration dropdown](images/ch09-launch-json.png "width=50%")
 
 *Figure 9.5 - The Run and Debug view with its configuration dropdown*
 

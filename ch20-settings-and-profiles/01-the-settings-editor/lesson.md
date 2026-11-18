@@ -2,6 +2,10 @@
 
 Open the Settings editor with {{Ctrl+,}}. It opens in a tab, with a search box at the top and a list of settings grouped by topic, such as Editor, Files, and Terminal.
 
+![Figure 20.1 - The Settings editor](images/ch20-settings-editor.png)
+
+*Figure 20.1 - The Settings editor, with the search box at the top*
+
 ## An example
 
 Suppose the text in the editor is too small. Type `font size` in the search box. The list narrows to settings with those words in their name or description. Find `Editor: Font Size`, which is 14 by default. Change it to 16. The change takes effect straight away, and the text in every open file grows.

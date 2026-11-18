@@ -2,6 +2,10 @@
 
 VS Code can edit code that lives somewhere other than your own computer's own files. This appendix describes the options at a high level. It is read only, so there are no steps to follow here.
 
+![Figure 25.1 - The remote indicator](images/ch25-remote-indicator.png)
+
+*Figure 25.1 - The remote indicator at the lower left of the status bar*
+
 ## WSL
 
 Windows Subsystem for Linux runs a Linux environment on your Windows computer. VS Code can open a folder inside that environment, so the tools you run, such as the terminal and the compilers, are the Linux ones. Your files stay in the Linux environment.

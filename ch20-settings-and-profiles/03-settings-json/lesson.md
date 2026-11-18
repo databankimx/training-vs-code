@@ -2,6 +2,10 @@
 
 Every setting you change is stored in a JSON file. To open the user settings file, press {{Ctrl+Shift+P}}, type `Preferences: Open User Settings (JSON)`, and press {{Enter}}.
 
+![Figure 20.2 - The settings.json file](images/ch20-settings-json.png "width=70%")
+
+*Figure 20.2 - settings.json open in the editor*
+
 The file holds one entry for each setting you have changed. Each entry is a name and a value:
 
 ```json

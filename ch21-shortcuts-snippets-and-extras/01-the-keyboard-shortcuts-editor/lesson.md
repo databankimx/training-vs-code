@@ -1,8 +1,12 @@
 # The Keyboard Shortcuts editor
 
-Open the Keyboard Shortcuts editor with {{Ctrl+K Ctrl+S}}. Press {{Ctrl+K}}, let go, then press {{Ctrl+S}}. This is a chord, which the chord lesson covers later.
+Open the Keyboard Shortcuts editor by pressing {{Ctrl+K}}, letting go, and then pressing {{Ctrl+S}}. This is a chord, which the chord lesson covers later.
 
 The editor lists every command in VS Code, with its shortcut beside it, if it has one. A search box at the top finds commands by name, by shortcut, or by the words in their description.
+
+![Figure 21.1 - The Keyboard Shortcuts editor](images/ch21-keyboard-shortcuts-editor.png)
+
+*Figure 21.1 - The Keyboard Shortcuts editor with a search result*
 
 ## An example
 

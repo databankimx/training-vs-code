@@ -4,6 +4,10 @@ Sometimes an extension gets in the way, but you want to keep it for later. You c
 
 In the Extensions view, right-click the Pylint extension and choose Disable. VS Code asks you to reload the window, which applies the change. Choose Reload.
 
+![Figure 19.2 - The extension's right-click menu](images/ch19-disable-menu.png "width=50%")
+
+*Figure 19.2 - The right-click menu on an extension, with Disable*
+
 Disabled extensions stay in the Installed list, with a Disabled label beside them. Right-click the extension again and choose Enable to turn it back on, then reload again.
 
 The menu also offers Disable (Workspace). That turns the extension off only for the folder you have open, so it stays on everywhere else. Use it when one project should not show an extension's warnings, but your other projects still should.

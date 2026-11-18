@@ -10,6 +10,10 @@ Type `#file:calculator.py` in a question, for example:
 #file:calculator.py Which functions in this file have no docstring?
 ```
 
+![Figure 17.3 - The context picker](images/ch17-context-picker.png "width=70%")
+
+*Figure 17.3 - Typing # in the chat box opens the list of context items*
+
 Use #file when the question is about a file that is not open.
 
 ## @workspace: search the project

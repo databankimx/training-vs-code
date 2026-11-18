@@ -8,19 +8,19 @@ To select every match in the file at once, press {{Ctrl+Shift+L}}. Every match g
 
 The four frames below show one edit from start to finish. The edit changes every `"` in a short list to nothing, so the values become plain numbers.
 
-![Figure 5.1 - The first quote selected, before any other match is added](images/ch05-frame-1-select.png)
+![Figure 5.1 - The first quote selected, before any other match is added](images/ch05-frame-1-select.png "width=30%")
 
 *Figure 5.1 - The first quote selected, before any other match is added*
 
-![Figure 5.2 - Ctrl+D has added the next match, and there are two selections](images/ch05-frame-2-next-match.png)
+![Figure 5.2 - Ctrl+D has added the next match, and there are two selections](images/ch05-frame-2-next-match.png "width=30%")
 
 *Figure 5.2 - Ctrl+D has added the next match, and there are two selections*
 
-![Figure 5.3 - Ctrl+Shift+L has selected every match in the list](images/ch05-frame-3-all-matches.png)
+![Figure 5.3 - Ctrl+Shift+L has selected every match in the list](images/ch05-frame-3-all-matches.png "width=30%")
 
 *Figure 5.3 - Ctrl+Shift+L has selected every match in the list*
 
-![Figure 5.4 - After pressing Delete, every quote is gone at once](images/ch05-frame-4-deleted.png)
+![Figure 5.4 - After pressing Delete, every quote is gone at once](images/ch05-frame-4-deleted.png "width=30%")
 
 *Figure 5.4 - After pressing Delete, every quote is gone at once*
 

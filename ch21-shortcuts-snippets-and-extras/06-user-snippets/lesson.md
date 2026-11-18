@@ -6,6 +6,10 @@ A snippet is a short piece of code that VS Code types for you when you type its 
 
 Press {{Ctrl+Shift+P}}, type `Snippets: Configure User Snippets`, and press {{Enter}}. Choose `python` from the list. VS Code opens a file called `python.json`, which holds the Python snippets you add.
 
+![Figure 21.3 - The Python snippet file](images/ch21-snippet-file.png "width=80%")
+
+*Figure 21.3 - The user snippet file for Python*
+
 ## Reading a snippet
 
 Here is a snippet that types a function with a docstring:

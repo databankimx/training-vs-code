@@ -2,6 +2,10 @@
 
 After you sign in, the robot icon at the bottom of the window opens Copilot's menu. Click it to see where Copilot stands.
 
+![Figure 16.3 - The Copilot status bar menu](images/ch16-status-bar-menu.png "width=50%")
+
+*Figure 16.3 - The robot icon's menu after sign-in, showing the plan, credits, and Inline Suggestions*
+
 ## What the menu shows after sign-in
 
 - **The plan name** at the top. A personal account on the free tier shows `Copilot Free`. If your plan shows something else, stop, and check which account you are signed in with, as the account lesson explained.

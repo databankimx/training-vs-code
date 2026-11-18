@@ -16,6 +16,10 @@ Wait a moment. Copilot may show grey text on the next line, such as:
     return a - b
 ```
 
+![Figure 17.1 - Ghost text after a function definition](images/ch17-ghost-text.png "width=60%")
+
+*Figure 17.1 - Ghost text: Copilot's suggestion in grey, not yet in the file*
+
 The suggestion is a guess based on the function name and the code above it. If the name were `subtract_with_tax`, the guess would change, because the name points to a different purpose.
 
 ## When it appears

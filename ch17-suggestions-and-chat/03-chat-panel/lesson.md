@@ -2,6 +2,10 @@
 
 The chat panel is where you ask questions. It opens beside the editor, with a box at the bottom for typing. Open it with {{Ctrl+Alt+I}}.
 
+![Figure 17.2 - The Chat panel](images/ch17-chat-panel.png "width=40%")
+
+*Figure 17.2 - The chat panel open beside the editor*
+
 ## A worked example
 
 With `calculator.py` open, type this question in the box:

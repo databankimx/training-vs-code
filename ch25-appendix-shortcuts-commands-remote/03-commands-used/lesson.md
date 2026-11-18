@@ -32,13 +32,12 @@ Press {{Ctrl+Shift+P}}, and type a command's name to run it. Names here match th
 - `Git: Fetch`, `Git: Pull`, `Git: Push`: move commits to and from the remote. Chapter 12.
 - `Git: Publish Branch...`: copies a new branch to GitHub. Chapters 15 and 23.
 - `Git: Merge...`: merges a branch into the current one. Chapter 13.
-- `Git: Abort Merge`: stops a merge in progress. Chapter 13.
 - `Git: Undo Last Commit`: undoes the last commit, and keeps the changes. Chapter 10.
 - `Sync Changes`: the button that pulls and pushes together. Chapter 12.
 
 ## Debugging, output, and trust
 
-- `Developer: Show Logs`: opens VS Code's logs. Chapter 22.
+- `Developer: Show Logs...`: opens VS Code's logs. Chapter 22.
 - `Developer: Reload Window`: restarts the window without losing work. Chapter 22.
 - `Workspaces: Manage Workspace Trust`: changes whether a folder is trusted. Chapter 22.
 

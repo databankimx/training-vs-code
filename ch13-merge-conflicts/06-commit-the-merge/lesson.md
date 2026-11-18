@@ -46,6 +46,6 @@ git status
 
 It should say the working tree is clean, with no mention of a merge.
 
-> **Cancelling a merge.** If you want to start again before you commit, run `Git: Abort Merge` from the Command Palette. The terminal equivalent is `git merge --abort`. Both put the branch back the way it was before the merge.
+> **Cancelling a merge.** If you want to start again before you commit, run `git merge --abort` in the terminal. It stops the merge and returns the files to their state before the merge began.
 
 ---

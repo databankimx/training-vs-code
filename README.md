@@ -92,8 +92,13 @@ The setup script does these steps for you.
 
 ## Versions
 
-- VS Code version for the screenshots: to be recorded when the screenshots are retaken.
-- Course status: Chapters 0 to 9 are drafted. Chapters 10 to 25 are planned in the course roadmap.
+- VS Code version: 1.146.0 (Help > About on the screenshot build).
+  - Commit: 69047191fc427f2f92828279aae1d90d8eeda7ab, dated 2026-11-10
+  - Electron 43.8.6, Chromium 150.0.7871.250, Node.js 24.22.1, V8 15.0.245.31-electron.0
+  - GitHub Copilot 1.0.108-0, Copilot SDK 1.0.30-preview.0
+  - OS: Windows_NT x64 10.0.26300
+  - The screenshots are taken on this version.
+- Course status: Chapters 0 to 25 are drafted. Screenshots are still to be captured for most chapters.
 
 ---
 

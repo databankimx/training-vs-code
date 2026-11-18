@@ -30,7 +30,9 @@
       "chapters": [
         "ch10-source-control-panel",
         "ch11-cloning-branches-stashing",
-        "ch12-fetch-pull-push"
+        "ch12-fetch-pull-push",
+        "ch13-merge-conflicts",
+        "ch14-history-and-blame"
       ]
     }
   ]

@@ -1,0 +1,4 @@
+{
+  "title": "Line blame",
+  "objective": "Find the commit and author behind a single line, and use git blame in the terminal to confirm it."
+}

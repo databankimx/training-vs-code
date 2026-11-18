@@ -1,0 +1,4 @@
+{
+  "title": "The Merge Editor",
+  "objective": "Open a conflicted file in the Merge Editor, and tell the current, incoming, and result panes apart."
+}

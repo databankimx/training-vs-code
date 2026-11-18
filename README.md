@@ -98,6 +98,7 @@ The setup script does these steps for you.
   - GitHub Copilot 1.0.108-0, Copilot SDK 1.0.30-preview.0
   - OS: Windows_NT x64 10.0.26300
   - The screenshots are taken on this version.
+- Mac shortcuts: the Mac column in Chapter 25 has not been verified on a Mac. Entries marked "verify" are unchecked.
 - Course status: Chapters 0 to 25 are drafted. Screenshots are still to be captured for most chapters.
 
 ---

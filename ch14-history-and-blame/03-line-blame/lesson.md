@@ -2,7 +2,9 @@
 
 Blame answers a narrower question than the Timeline. For each line in a file, it names the commit that last changed the line, and the author of that commit.
 
-Open `calculator.py`, and put the cursor on the `return` line of `add`. Run the Command Palette command that shows blame information for the current line. In VS Code, that is a blame annotation at the end of the line, which shows the author, the date, and the commit message.
+Open `calculator.py`, and put the cursor on the `return` line of `add`. Run `Toggle Git Blame Editor Decoration` from the Command Palette. A blame annotation appears at the end of each line, showing the author, the date, and the commit message.
+
+To see the blame for the current line in the status bar at the bottom of the window, run `Toggle Git Blame Status Bar Item` as well. Run either command again to turn it off.
 
 Click the annotation to open the commit's details, the same as in the Timeline.
 

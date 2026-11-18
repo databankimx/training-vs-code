@@ -2,9 +2,9 @@
 
 Sometimes you want to know how two commits differ, not what one commit did on its own. You can compare any two commits in the Timeline, and VS Code shows the difference between them.
 
-For the `add` function, the two Chapter 13 commits are a good pair. Find the `Side change to add` commit and the `Main change to add` commit in the Timeline. Select one, then select the other while holding {{Ctrl}}. Right-click one of them and choose Compare Selected.
+For the `add` function, the two Chapter 13 commits are a good pair. Find the `Side change to add` commit and the `Main change to add` commit in the Timeline. Right-click the first one and choose Select for Compare. Then right-click the second one and choose Compare with Selected.
 
-VS Code opens a diff with the two versions of `calculator.py` side by side. The lines that differ are highlighted, and each one matches a line from the merge conflict in Chapter 13.
+VS Code opens a diff with the two versions of `calculator.py` side by side. The tab title shows both commit hashes, in the form `first hash ↔ second hash`, so you can tell which side is which. The lines that differ are highlighted, and each one matches a line from the merge conflict in Chapter 13.
 
 Check the same difference in the terminal, with the two commits' short hashes from the Timeline:
 

@@ -6,7 +6,7 @@ Open `calculator.py`, and put the cursor on the `return` line of `add`. Run `Tog
 
 To see the blame for the current line in the status bar at the bottom of the window, run `Toggle Git Blame Status Bar Item` as well. Run either command again to turn it off.
 
-Click the annotation to open the commit's details, the same as in the Timeline.
+Hover over the annotation to see a card with the author, the date, the commit message, and how many lines the commit added and removed. At the bottom of the card, the short hash opens the commit when you click it. The card also has an Open on GitHub link, which opens the same commit on the website.
 
 Check the same information in the terminal, for the lines of `add`:
 

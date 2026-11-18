@@ -1,0 +1,4 @@
+{
+  "title": "Homework: a launch configuration for the practice tests",
+  "objective": "Write a launch.json configuration that runs the practice tests under the debugger, and stop at a breakpoint in calculator.py."
+}

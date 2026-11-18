@@ -155,3 +155,9 @@ resources/
 Thumbs.db
 Desktop.ini
 $RECYCLE.BIN/
+
+.venv/
+.vscode/
+
+# Written by setup.ps1 on each run
+setup.log

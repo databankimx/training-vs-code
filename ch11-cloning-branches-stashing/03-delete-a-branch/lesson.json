@@ -1,0 +1,4 @@
+{
+  "title": "Deleting a branch",
+  "objective": "Delete a branch that has been merged or is no longer needed, and know that Git will not delete the branch you are on."
+}

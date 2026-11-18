@@ -1,0 +1,4 @@
+{
+  "title": "Running the setup script",
+  "objective": "Check the execution policy, change it for your account only if needed, and run setup.ps1 from the terminal."
+}

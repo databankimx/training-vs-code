@@ -1,0 +1,4 @@
+{
+  "title": "Debug the failing test",
+  "objective": "Set a breakpoint in the failing test, run it under the debugger, and read the values."
+}

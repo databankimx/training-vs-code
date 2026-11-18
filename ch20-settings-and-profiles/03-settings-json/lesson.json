@@ -1,0 +1,4 @@
+{
+  "title": "settings.json",
+  "objective": "Open the user settings file, and read the entries it holds."
+}

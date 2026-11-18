@@ -1,0 +1,4 @@
+{
+  "title": "Developer: Show Logs and Reload Window",
+  "objective": "Open the logs for VS Code, and reload the window to clear a stuck state."
+}

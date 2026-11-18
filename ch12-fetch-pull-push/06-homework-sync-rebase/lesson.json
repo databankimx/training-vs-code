@@ -1,0 +1,4 @@
+{
+  "title": "Homework: rebase when syncing",
+  "objective": "Turn on git.rebaseWhenSync, make a commit that diverges from the remote, and confirm with Sync Changes that the history is a straight line."
+}

@@ -1,8 +1,7 @@
 // core/state.js
 //
-// Saves the learner's progress: the step they were on, the steps they have visited, each lesson's quiz answers and
-// spoiler states, and which code steps have had their solutions revealed. The file lives in the user data folder,
-// never in the repository. Drafts are not saved.
+// Saves the learner's progress: the step they were on, the steps they have visited, and each lesson's quiz answers and
+// spoiler states. The file lives in the user data folder, never in the repository. Drafts are not saved.
 
 'use strict';
 
@@ -10,7 +9,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 function emptyState() {
-  return { lastStep: null, visited: [], lessons: {}, solutions: {} };
+  return { lastStep: null, visited: [], lessons: {} };
 }
 
 function emptyLessonProgress() {
@@ -43,16 +42,6 @@ function cleanLessons(value) {
   return lessons;
 }
 
-// Only a reveal that was actually saved as true counts.
-function cleanSolutions(value) {
-  const solutions = {};
-  if (!isPlainObject(value)) return solutions;
-  for (const [id, revealed] of Object.entries(value)) {
-    if (revealed === true) solutions[id] = true;
-  }
-  return solutions;
-}
-
 // A missing or damaged file gives an empty state, so the runner always starts.
 function loadState(file) {
   try {
@@ -61,7 +50,6 @@ function loadState(file) {
       lastStep: typeof data.lastStep === 'string' ? data.lastStep : null,
       visited: Array.isArray(data.visited) ? data.visited.filter((id) => typeof id === 'string') : [],
       lessons: cleanLessons(data.lessons),
-      solutions: cleanSolutions(data.solutions),
     };
   } catch {
     return emptyState();
@@ -98,22 +86,4 @@ function lessonProgress(state, lessonId) {
   return state.lessons[lessonId] ?? emptyLessonProgress();
 }
 
-// Opening a code step's solutions is kept, so the gate stays open on the next run.
-function recordSolutionsRevealed(state, lessonId) {
-  return { ...state, solutions: { ...state.solutions, [lessonId]: true } };
-}
-
-function solutionsRevealed(state, lessonId) {
-  return state.solutions[lessonId] === true;
-}
-
-module.exports = {
-  emptyState,
-  loadState,
-  saveState,
-  markVisited,
-  recordProgress,
-  lessonProgress,
-  recordSolutionsRevealed,
-  solutionsRevealed,
-};
+module.exports = { emptyState, loadState, saveState, markVisited, recordProgress, lessonProgress };

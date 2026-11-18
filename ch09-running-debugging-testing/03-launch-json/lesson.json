@@ -1,0 +1,4 @@
+{
+  "title": "The launch.json file",
+  "objective": "Find the Run and Debug configuration, and read what each property of a Python launch configuration does."
+}

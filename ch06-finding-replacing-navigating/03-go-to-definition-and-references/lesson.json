@@ -1,0 +1,4 @@
+{
+  "title": "Going to definitions, references, and lines",
+  "objective": "Jump to where a name is defined, find where it is used, and move to a line or a symbol by name."
+}

@@ -1,0 +1,4 @@
+{
+  "title": "Tasks and tasks.json",
+  "objective": "Write a task in tasks.json, run it from the Terminal menu, and run the default build task with a shortcut."
+}

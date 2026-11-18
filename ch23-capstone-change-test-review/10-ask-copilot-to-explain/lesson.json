@@ -1,0 +1,4 @@
+{
+  "title": "Ask Copilot to explain",
+  "objective": "Ask Copilot to explain the total function, and check its explanation against the code and the tests."
+}

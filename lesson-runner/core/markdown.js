@@ -121,15 +121,15 @@ function renderQuiz(md, source) {
     .map(
       (choice) =>
         `<div class="quiz-choice" data-correct="${choice.correct ? 'true' : 'false'}">` +
-        `<label><input type="radio" name="${name}"> <span>${escape(choice.text)}</span></label>` +
-        `<div class="quiz-explain" hidden>${escape(choice.feedback)}</div>` +
+        `<label><input type="radio" name="${name}"> <span>${md.renderInline(choice.text)}</span></label>` +
+        `<div class="quiz-explain" hidden>${md.renderInline(choice.feedback)}</div>` +
         `</div>`,
     )
     .join('\n');
 
   return (
     `<div class="quiz" data-quiz>\n` +
-    `<div class="quiz-question"><p>${escape(quiz.question)}</p></div>\n` +
+    `<div class="quiz-question"><p>${md.renderInline(quiz.question)}</p></div>\n` +
     `<div class="quiz-choices">\n${choices}\n</div>\n` +
     `<div class="quiz-status" aria-live="polite"></div>\n` +
     `</div>\n`
@@ -223,9 +223,58 @@ function examplesInfo(info) {
   return { source: flags.includes('source'), readonly: flags.includes('readonly') };
 }
 
+// A list item that starts with [ ] or [x] becomes a checklist item, drawn with a box. The box is built here, not read
+// from the page's HTML, because raw HTML stays off. The boxes are not clickable yet: ticks are stored in progress later.
+function addChecklistBoxes(md) {
+  md.core.ruler.after('inline', 'checklist_boxes', (state) => {
+    const tokens = state.tokens;
+    for (let i = 2; i < tokens.length; i++) {
+      const token = tokens[i];
+      if (token.type !== 'inline' || !token.children || token.children.length === 0) continue;
+      if (tokens[i - 2].type !== 'list_item_open') continue;
+      const first = token.children[0];
+      if (first.type !== 'text') continue;
+      const match = /^\[( |x|X)\] /.exec(first.content);
+      if (!match) continue;
+      const checked = match[1] !== ' ';
+      first.content = first.content.slice(4);
+      const box = new state.Token('html_inline', '', 0);
+      box.content = `<input type="checkbox" class="task-box" disabled${checked ? ' checked' : ''}> `;
+      token.children.unshift(box);
+      tokens[i - 2].attrJoin('class', 'task-item');
+    }
+  });
+}
+
+// A keyboard shortcut written as {{Ctrl+Shift+P}} is drawn as keycaps, one per key. Text inside code is not changed, because
+// the code is read first. A key name such as Ctrl+= or Alt+Up is split at each plus sign.
+function addKeycaps(md) {
+  md.inline.ruler.before('emphasis', 'keycaps', (state, silent) => {
+    if (state.src.charCodeAt(state.pos) !== 0x7b || state.src.charCodeAt(state.pos + 1) !== 0x7b) return false;
+    const end = state.src.indexOf('}}', state.pos + 2);
+    if (end === -1) return false;
+    const body = state.src.slice(state.pos + 2, end);
+    if (body.trim() === '' || body.includes('\n')) return false;
+    if (!silent) {
+      const token = state.push('keycaps', '', 0);
+      token.meta = { keys: body.split('+').map((key) => key.trim()) };
+    }
+    state.pos = end + 2;
+    return true;
+  });
+  md.renderer.rules.keycaps = (tokens, index) => {
+    const keys = tokens[index].meta.keys;
+    return keys
+      .map((key) => `<kbd>${md.utils.escapeHtml(key)}</kbd>`)
+      .join('<span class="key-plus">+</span>');
+  };
+}
+
 function createRenderer(options = {}) {
   const md = new MarkdownIt({ html: false, linkify: true, typographer: false, highlight: options.highlight || null });
   const defaultFence = md.renderer.rules.fence;
+  addChecklistBoxes(md);
+  addKeycaps(md);
 
   md.renderer.rules.fence = (tokens, index, options, env, self) => {
     const token = tokens[index];

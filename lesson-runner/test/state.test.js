@@ -1,7 +1,7 @@
 // test/state.test.js
 //
 // Checks progress saving: a missing or damaged file must never stop the runner from starting, and quiz answers,
-// spoiler states, and solution reveals must come back exactly as they were saved.
+// and spoiler states must come back exactly as they were saved.
 
 'use strict';
 
@@ -18,8 +18,6 @@ const {
   markVisited,
   recordProgress,
   lessonProgress,
-  recordSolutionsRevealed,
-  solutionsRevealed,
 } = require('../core/state');
 
 function tempFile() {
@@ -57,7 +55,7 @@ test('invalid visited and lastStep fields in the file are ignored', () => {
   const file = tempFile();
   fs.mkdirSync(path.dirname(file), { recursive: true });
   fs.writeFileSync(file, JSON.stringify({ lastStep: 42, visited: ['ok', 7] }), 'utf8');
-  assert.deepEqual(loadState(file), { lastStep: null, visited: ['ok'], lessons: {}, solutions: {} });
+  assert.deepEqual(loadState(file), { lastStep: null, visited: ['ok'], lessons: {} });
 });
 
 test('a quiz answer and a spoiler state are saved per lesson and come back after a restart', () => {
@@ -107,13 +105,3 @@ test('malformed saved progress is dropped when the file is read', () => {
   assert.equal(state.lessons.notAnObject, undefined);
 });
 
-test('a solution reveal stays open across runs, and only a saved true counts', () => {
-  const file = tempFile();
-  saveState(file, recordSolutionsRevealed(emptyState(), 'ch01-first-interaction/02-let-the-assistant-finish'));
-  const reloaded = loadState(file);
-  assert.equal(solutionsRevealed(reloaded, 'ch01-first-interaction/02-let-the-assistant-finish'), true);
-  assert.equal(solutionsRevealed(reloaded, 'ch01-first-interaction/03-read-before-accepting'), false);
-
-  fs.writeFileSync(file, JSON.stringify({ solutions: { someStep: 'yes', otherStep: true } }), 'utf8');
-  assert.deepEqual(loadState(file).solutions, { otherStep: true });
-});

@@ -1,0 +1,4 @@
+{
+  "title": "Homework: a tasks.json entry for the practice tests",
+  "objective": "Write a tasks.json entry that runs the practice repository's Python tests, run it from VS Code, and read the result."
+}

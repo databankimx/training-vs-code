@@ -1,0 +1,4 @@
+{
+  "title": "Reading conflict markers",
+  "objective": "Read the conflict markers Git writes into a file, and tell the current change from the incoming change."
+}

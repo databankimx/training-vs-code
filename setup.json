@@ -1,0 +1,64 @@
+{
+  "name": "Working With Visual Studio Code",
+  "folder": "training-vs-code",
+  "repoUrl": "https://github.com/databankimx/training-vs-code.git",
+  "branch": "main",
+  "requirePowerShell7": false,
+  "requirements": [
+    {
+      "kind": "vcRuntime",
+      "id": "Microsoft.VCRedist.2015+.x64",
+      "checkFiles": [
+        "%SystemRoot%\\System32\\VCRUNTIME140.dll",
+        "%SystemRoot%\\System32\\MSVCP140.dll"
+      ],
+      "elevated": true
+    },
+    {
+      "kind": "winget",
+      "id": "Git.Git",
+      "check": "git",
+      "paths": [
+        "%ProgramFiles%\\Git\\cmd\\git.exe"
+      ]
+    },
+    {
+      "kind": "winget",
+      "id": "Microsoft.VisualStudioCode",
+      "check": "code",
+      "paths": [
+        "%LOCALAPPDATA%\\Programs\\Microsoft VS Code\\bin\\code.cmd",
+        "%ProgramFiles%\\Microsoft VS Code\\bin\\code.cmd"
+      ]
+    },
+    {
+      "kind": "winget",
+      "id": "OpenJS.NodeJS.LTS",
+      "check": "node",
+      "minimum": "24",
+      "paths": [
+        "%ProgramFiles%\\nodejs\\node.exe"
+      ]
+    }
+  ],
+  "npm": [
+    {
+      "folder": "lesson-runner",
+      "install": "auto",
+      "test": true
+    }
+  ],
+  "electron": {
+    "folder": "lesson-runner"
+  },
+  "vscode": {
+    "extensions": [],
+    "shellExtensions": true
+  },
+  "launch": {
+    "ide": "vscode",
+    "kind": "electron",
+    "folder": "lesson-runner",
+    "openRepo": true
+  }
+}

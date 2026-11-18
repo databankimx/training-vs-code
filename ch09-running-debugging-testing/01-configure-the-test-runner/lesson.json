@@ -1,0 +1,4 @@
+{
+  "title": "Configure the test runner",
+  "objective": "Tell VS Code that the practice tests use unittest, and see the three tests in the Testing view."
+}

@@ -1,0 +1,4 @@
+{
+  "title": "The integrated terminal",
+  "objective": "Open the terminal, choose PowerShell 7 as its default, open new and split terminals, and clear or close one."
+}

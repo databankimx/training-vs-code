@@ -1,0 +1,4 @@
+{
+  "title": "Diff, staging, and unstaging",
+  "objective": "Open the diff view for a changed file, read the inline changes, and stage and unstage a change."
+}

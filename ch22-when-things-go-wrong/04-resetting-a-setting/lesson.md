@@ -6,6 +6,10 @@ Sometimes a setting you changed causes the trouble, and the fastest fix is to pu
 
 Open the Settings editor with {{Ctrl+,}}, and search for the setting, using `@modified` to list every change you have made. Click the gear icon beside the setting, and choose Reset Setting. The value returns to its default, and the setting leaves the modified list.
 
+![Figure 22.3 - Reset Setting from the gear icon](images/ch22-reset-setting-menu.png)
+
+*Figure 22.3 - The gear icon menu, with Reset Setting*
+
 ## In the file
 
 Open the user settings file with `Preferences: Open User Settings (JSON)`. Find the entry for the setting, and delete the whole line. Remember the comma rules: if you delete the last entry, the one before it must not end with a comma. Save the file.

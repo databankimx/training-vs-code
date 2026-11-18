@@ -4,6 +4,10 @@ Blame answers a narrower question than the Timeline. For each line in a file, it
 
 Open `calculator.py`, and put the cursor on the `return` line of `add`. Run `Toggle Git Blame Editor Decoration` from the Command Palette. A blame annotation appears at the end of each line, showing the author, the date, and the commit message.
 
+![Figure 14.2 - Line blame](images/ch14-line-blame.png)
+
+*Figure 14.2 - Line blame annotations at the end of each line in calculator.py*
+
 To see the blame for the current line in the status bar at the bottom of the window, run `Toggle Git Blame Status Bar Item` as well. Run either command again to turn it off.
 
 Hover over the annotation to see a card with the author, the date, the commit message, and how many lines the commit added and removed. At the bottom of the card, the short hash opens the commit when you click it. The card also has an Open on GitHub link, which opens the same commit on the website.

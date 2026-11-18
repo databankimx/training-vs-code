@@ -2,9 +2,9 @@
 
 A commit saves the staged changes to the repository's history, with a message that says what changed. Only staged changes go into a commit.
 
-![Figure 10.3 - The status bar with the branch name](images/ch10-status-bar-branch.png "width=50%")
+![Figure 10.4 - The status bar with the branch name](images/ch10-status-bar-branch.png "width=50%")
 
-*Figure 10.3 - The status bar with the branch name*
+*Figure 10.4 - The status bar with the branch name*
 
 ## Write the message
 

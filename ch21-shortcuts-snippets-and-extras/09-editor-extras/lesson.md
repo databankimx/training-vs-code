@@ -10,9 +10,9 @@ Matching brackets get the same colour, so you can see which opening bracket goes
 
 In a long function, the header can scroll out of view, and you lose track of where you are. Sticky scroll keeps the enclosing lines at the top of the editor as you scroll. Search the Settings editor for `sticky scroll` and turn it on. The setting is `editor.stickyScroll.enabled`.
 
-![Figure 21.5 - Sticky scroll](images/ch21-sticky-scroll.png "width=70%")
+![Figure 21.6 - Sticky scroll](images/ch21-sticky-scroll.png "width=70%")
 
-*Figure 21.5 - Sticky scroll keeps the function's header at the top of the editor*
+*Figure 21.6 - Sticky scroll keeps the function's header at the top of the editor*
 
 ## The minimap
 

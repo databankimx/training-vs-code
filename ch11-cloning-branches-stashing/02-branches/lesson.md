@@ -2,6 +2,10 @@
 
 Each branch points to its own latest commit. When you switch branches, Git changes the files in your folder to match that commit. Commits you make on one branch do not appear on the others until you merge them, which Chapter 13 covers.
 
+![Figure 11.6 - The branch picker](images/ch11-branch-picker.png)
+
+*Figure 11.6 - The branch picker, opened from the branch name in the status bar*
+
 ```mermaid
 flowchart LR
   A["main"] -->|create a branch| B["feature branch"]

@@ -6,9 +6,9 @@ This is the bit of the story where you hand the fix to someone else. A pull requ
 
 Go to your repository on GitHub.com. A banner near the top offers to compare and open a pull request for `fix-price-test`. Select it. You can also open the pull request from VS Code, if the GitHub Pull Requests view is available in your build. Either way, the pull request compares `fix-price-test` with `main`.
 
-![Figure 23.1 - The pull request view](images/ch23-pull-request-view.png "width=40%")
+![Figure 23.2 - The pull request view](images/ch23-pull-request-view.png "width=40%")
 
-*Figure 23.1 - The pull request open in VS Code, with its title and description*
+*Figure 23.2 - The pull request open in VS Code, with its title and description*
 
 ## Write the description
 

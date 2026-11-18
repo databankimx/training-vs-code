@@ -8,6 +8,10 @@ Open `test_calculator.py`, and click in the gutter, the narrow strip to the left
 
 Open the Testing view from the activity bar, the flask icon. Hover over `test_total_of_prices_is_seven`, and click the debug icon beside it. The test runs under the debugger, and it stops at your breakpoint.
 
+![Figure 23.1 - The debugger stopped at a breakpoint](images/ch23-debugger-stopped-at-breakpoint.png)
+
+*Figure 23.1 - The debugger stopped at the breakpoint, with the Variables panel and debug toolbar*
+
 ## Read the values
 
 Look at the Variables panel. Press {{F10}} to step over the line, so the call runs and the next line becomes current. Watch the value that `total` returns. It is 6, not 7.

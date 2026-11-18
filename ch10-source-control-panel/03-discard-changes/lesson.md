@@ -8,6 +8,10 @@ Practise on the change to `README.md` you made in the last lesson, because it is
 
 1. In the Source Control view, make sure `README.md` is in the Changes group, not Staged Changes. If it is staged, unstage it first.
 2. Hover over `README.md`, and click the discard arrow. VS Code asks you to confirm. Choose the button that discards the change.
+
+![Figure 10.3 - Discarding a change](images/ch10-discard-changes.png)
+
+*Figure 10.3 - The Source Control view, with the discard icon on the README.md row*
 3. Open `README.md`. The line you added is gone, and the file no longer appears in the view.
 
 Then add the line again, so there is a change to commit in the next lesson.

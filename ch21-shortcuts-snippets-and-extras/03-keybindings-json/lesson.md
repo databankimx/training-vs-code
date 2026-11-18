@@ -2,6 +2,10 @@
 
 The changes you make in the Keyboard Shortcuts editor are saved to a file called `keybindings.json`. To open it, press {{Ctrl+Shift+P}}, type `Preferences: Open Keyboard Shortcuts (JSON)`, and press {{Enter}}.
 
+![Figure 21.2 - keybindings.json](images/ch21-keybindings-json.png)
+
+*Figure 21.2 - The keybindings.json file, with the duplicate shortcut entry*
+
 An entry for the duplicate shortcut looks like this:
 
 ```json

@@ -18,6 +18,10 @@ Suppose you open a DataBank project and ask Copilot to explain a function. If VS
 
 Look at the Accounts icon in the Activity Bar, at the lower left of the window. Click it. The menu shows the account name VS Code is signed in as. If that is not the account you intend, sign out from the same menu, and sign in with the right one.
 
+![Figure 16.1 - The Accounts menu](images/ch16-accounts-menu.png)
+
+*Figure 16.1 - The Accounts menu, showing the account VS Code is signed in as*
+
 > **Check before you open DataBank code.** Look at the Accounts icon before you open any DataBank project. If it shows the wrong account, sign out first.
 
 ---

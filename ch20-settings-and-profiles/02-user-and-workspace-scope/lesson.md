@@ -7,6 +7,10 @@ Settings apply at two levels:
 
 The Settings editor has two tabs at the top, User and Workspace. Check which one you are on before you change anything.
 
+![Figure 20.2 - The User and Workspace tabs](images/ch20-settings-scope-tabs.png)
+
+*Figure 20.2 - The User and Workspace tabs at the top of the Settings editor*
+
 ## An example
 
 Suppose your team's style guide asks for a line at column 79, so long lines are easy to spot. You want that rule in the practice repository, but not in every project on your computer. Set it on the Workspace tab. The rule now applies only to that folder. In any other folder, the setting is absent, so the line does not appear.

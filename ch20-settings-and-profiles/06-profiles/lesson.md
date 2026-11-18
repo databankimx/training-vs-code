@@ -10,9 +10,9 @@ You might keep a Writing profile with a larger font, word wrap on, and only the 
 
 Look for the profile menu at the lower left of the window. From there, choose Create Profile, give the profile a name, and choose what to copy into it. To switch, choose the profile from the same menu. The window and its tools change to match.
 
-![Figure 20.3 - The profile menu](images/ch20-profile-menu.png)
+![Figure 20.4 - The profile menu](images/ch20-profile-menu.png)
 
-*Figure 20.3 - The profile menu from the gear icon, with Profiles visible*
+*Figure 20.4 - The profile menu from the gear icon, with Profiles visible*
 
 ## Copy with care
 

@@ -20,23 +20,23 @@ Cloning copies a repository, with its full history, to your computer. VS Code gi
 
 The More Actions menu in the Source Control view, the three dots at the top right, also lists Clone. Use it when the view is already open and you want the menu's other Git actions next to it.
 
-![Figure 11.5 - The More Actions menu in the Source Control view](images/ch11-source-control-more-menu.png "width=35%")
+![Figure 11.3 - The More Actions menu in the Source Control view](images/ch11-source-control-more-menu.png "width=35%")
 
-*Figure 11.5 - The More Actions menu in the Source Control view*
+*Figure 11.3 - The More Actions menu in the Source Control view*
 
 ## Choose a source
 
 Whichever way you start, VS Code asks where the repository is. You can paste a URL into the box. You can also choose Clone from GitHub, which lists the repositories your GitHub account can reach, including the ones in every GitHub organization you belong to.
 
-![Figure 11.3 - The clone box, with Clone from GitHub as a source](images/ch11-clone-from-github-prompt.png "width=75%")
+![Figure 11.4 - The clone box, with Clone from GitHub as a source](images/ch11-clone-from-github-prompt.png "width=75%")
 
-*Figure 11.3 - The clone box, with Clone from GitHub as a source*
+*Figure 11.4 - The clone box, with Clone from GitHub as a source*
 
 Type the name of a repository to filter the list. Each entry shows the owner, the name, and the URL, so you can tell apart two repositories with similar names.
 
-![Figure 11.4 - The list of repositories from Clone from GitHub](images/ch11-clone-from-github-repos.png "width=75%")
+![Figure 11.5 - The list of repositories from Clone from GitHub](images/ch11-clone-from-github-repos.png "width=75%")
 
-*Figure 11.4 - The list of repositories from Clone from GitHub*
+*Figure 11.5 - The list of repositories from Clone from GitHub*
 
 For this chapter, paste your copy's address, which is the one you used in Chapter 3:
 

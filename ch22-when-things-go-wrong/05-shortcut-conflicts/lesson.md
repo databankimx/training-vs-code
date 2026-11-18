@@ -12,7 +12,7 @@ You have two choices. Reset the shortcut you changed, using the right-click menu
 
 ## Watch for a chord
 
-A key that starts a chord, such as Ctrl+K, can seem to do nothing when it is waiting for its second press. If a key looks dead, press {{Escape}} to cancel any chord in progress, and try again.
+A key that starts a chord, such as Ctrl+K, can seem to do nothing when it is waiting for its second press. If a key looks dead, press {{Esc}} to cancel any chord in progress, and try again.
 
 > **Find the owner first.** Before you change a binding, find out which command owns the key now, so you know what you are replacing.
 

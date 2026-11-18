@@ -16,6 +16,6 @@ Reloading does not close your files or lose your work. Save everything first, so
 
 Reload when a feature stops responding, when a setting you changed has not taken effect, or after an extension update. If the problem comes back after a reload, the reload was not the fix, and the logs are the next place to look.
 
-> **Save before you reload.** A reload is safe, but an unsaved file is still an unsaved file. Use {{Ctrl+K S}} to save all files, if your build has that command, or save each one with {{Ctrl+S}}.
+> **Save before you reload.** A reload is safe, but an unsaved file is still an unsaved file. Use {{Ctrl+K}} then {{S}} to save all files, or save each one with {{Ctrl+S}}.
 
 ---

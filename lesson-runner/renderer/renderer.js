@@ -446,7 +446,13 @@
     const link = target ? target.closest('a[href]') : null;
     if (link) {
       event.preventDefault();
-      window.runner.openExternal(link.getAttribute('href'));
+      const href = link.getAttribute('href');
+      // A relative link to a PDF or Markdown file in the course opens in the default app; everything else goes to the browser.
+      if (state.current && !/^[a-z][a-z0-9+.-]*:/i.test(href) && /\.(pdf|md)$/i.test(href)) {
+        window.runner.openDocument(state.current.id, href);
+      } else {
+        window.runner.openExternal(href);
+      }
     }
   });
 

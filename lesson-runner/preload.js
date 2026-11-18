@@ -19,6 +19,7 @@ contextBridge.exposeInMainWorld('runner', {
     ipcRenderer.on('progress:reset', () => callback());
   },
   openExternal: (url) => ipcRenderer.invoke('link:open', url),
+  openDocument: (id, href) => ipcRenderer.invoke('document:open', id, href),
   popOutLesson: (id) => ipcRenderer.invoke('popout:open', id),
   popoutNavigated: (id) => ipcRenderer.invoke('popout:navigated', id),
   syncPopout: (id) => ipcRenderer.invoke('popout:sync', id),

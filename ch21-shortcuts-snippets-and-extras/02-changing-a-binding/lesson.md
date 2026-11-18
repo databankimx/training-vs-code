@@ -12,7 +12,7 @@ Try it in `calculator.py`. Put the cursor on a line, press {{Ctrl+Alt+D}}, and a
 
 ## Putting it back
 
-Double-click the row again, and press {{Escape}} to cancel, or right-click the row and choose Reset Keybinding to restore the default. Keep the default if you are not sure, because a shortcut you change can clash with one a teammate depends on.
+Double-click the row again, and press {{Esc}} to cancel, or right-click the row and choose Reset Keybinding to restore the default. Keep the default if you are not sure, because a shortcut you change can clash with one a teammate depends on.
 
 > **A new key can clash.** The editor warns you if the key already belongs to another command. Read the warning before you press Enter.
 

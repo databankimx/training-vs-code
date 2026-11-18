@@ -31,7 +31,7 @@ The panel sits along the bottom of the window by default. Some people prefer it 
 
 ## Zen Mode
 
-Zen Mode hides everything except the editor, so you can focus on one file. Press {{Ctrl+K}}, then Z, one after the other. Press {{Esc}} twice to leave it.
+Zen Mode hides everything except the editor, so you can focus on one file. Press {{Ctrl+K}}, then {{Z}}, one after the other. Press {{Esc}} twice to leave it.
 
 ![Figure 3.8 - The window in Zen Mode, showing only the editor](images/ch03-zen-mode.png)
 

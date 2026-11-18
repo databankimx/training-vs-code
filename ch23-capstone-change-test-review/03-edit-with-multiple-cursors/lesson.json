@@ -1,0 +1,4 @@
+{
+  "title": "Edit with multiple cursors",
+  "objective": "Use multiple cursors to change the same word in several places in the test file."
+}

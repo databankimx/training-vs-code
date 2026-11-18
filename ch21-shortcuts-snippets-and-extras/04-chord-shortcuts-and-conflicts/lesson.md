@@ -8,7 +8,7 @@ Press {{Ctrl+K}}, and let go. The status bar says that Ctrl+K was pressed and is
 
 Another useful chord is {{Ctrl+K}} then {{V}}, which opens a Markdown preview beside the source file. It is the one to use when you edit a README. The Markdown preview lesson covers it in full.
 
-If the second key is not part of the chord, VS Code cancels the chord and nothing happens. That is not an error. Press {{Escape}} to cancel a chord you started by mistake.
+If the second key is not part of the chord, VS Code cancels the chord and nothing happens. That is not an error. Press {{Esc}} to cancel a chord you started by mistake.
 
 ## Conflicts
 

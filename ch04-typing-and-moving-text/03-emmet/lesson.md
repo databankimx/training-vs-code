@@ -16,7 +16,7 @@ The `>` means "inside", and the `*3` means "three times". The cursor lands insid
 
 ## Trying it without making a file
 
-You do not need to create a file to try Emmet. Press {{Ctrl+N}} to open a new untitled file. Then press {{Ctrl+K}}, then M, to change its language mode to HTML, and type the abbreviation. The language mode is shown in the status bar, so check it says HTML before you press {{Tab}}.
+You do not need to create a file to try Emmet. Press {{Ctrl+N}} to open a new untitled file. Then press {{Ctrl+K}}, then {{M}}, to change its language mode to HTML, and type the abbreviation. The language mode is shown in the status bar, so check it says HTML before you press {{Tab}}.
 
 > **Other languages:** Emmet only works where the language mode supports it. A Python file will not expand the abbreviation, and {{Tab}} will simply insert spaces.
 

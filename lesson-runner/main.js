@@ -11,6 +11,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 const { loadCatalog, flatten, summarize, neighbors, readParts, checkParts, groupByPart } = require('./core/catalog');
+const { lessonDocumentFile } = require('./core/documents');
 const { createRenderer } = require('./core/markdown');
 const { lessonImageUri } = require('./core/images');
 const { markdownHighlight } = require('./core/highlight');
@@ -164,6 +165,15 @@ function registerHandlers() {
     return next;
   });
   ipcMain.handle('link:open', (_event, url) => openInBrowser(String(url)));
+  // Opens a PDF or Markdown file a lesson links to, in the learner's default app. Only files inside the course folder open.
+  ipcMain.handle('document:open', async (_event, id, href) => {
+    const item = flatten(loadCatalog(courseRoot)).find((entry) => entry.id === String(id));
+    if (!item) return false;
+    const file = lessonDocumentFile(item.dir, courseRoot, String(href));
+    if (!file) return false;
+    const error = await shell.openPath(file);
+    return error === '';
+  });
   ipcMain.handle('progress:record', (_event, id, kind, index, value) => {
     const lessonId = String(id);
     if (!currentItems().some((item) => item.id === lessonId)) throw new Error(`Unknown lesson: ${lessonId}`);

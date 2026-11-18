@@ -52,6 +52,14 @@
         "ch21-shortcuts-snippets-and-extras",
         "ch22-when-things-go-wrong"
       ]
+    },
+    {
+      "title": "Part VII - Putting It Together",
+      "chapters": [
+        "ch23-capstone-change-test-review",
+        "ch24-summary-working-checklist",
+        "ch25-appendix-shortcuts-commands-remote"
+      ]
     }
   ]
 }

@@ -83,7 +83,7 @@ The setup script does these steps for you.
 
 ## Repository layout
 
-- `ch00-introduction` to `ch09-running-debugging-testing`: the chapters. Each chapter folder holds a `lesson.md` introduction, and one folder for each step.
+- `ch00-introduction` to `ch10-running-debugging-testing`: the chapters. Each chapter folder holds a `lesson.md` introduction, and one folder for each step.
 - `parts.json`: groups the chapters into parts. Every chapter must be listed exactly once.
 - `lesson-runner`: the app that displays the lessons, with its tests.
 - `setup.ps1` and `setup.json`: the setup script and the manifest it reads.
@@ -98,8 +98,8 @@ The setup script does these steps for you.
   - GitHub Copilot 1.0.108-0, Copilot SDK 1.0.30-preview.0
   - OS: Windows_NT x64 10.0.26300
   - The screenshots are taken on this version.
-- Mac shortcuts: the Mac column in Chapter 25 has not been verified on a Mac. Entries marked "verify" are unchecked.
-- Course status: Chapters 0 to 25 are drafted. Screenshots are still to be captured for most chapters.
+- Mac shortcuts: the Mac column in Chapter 26 has not been verified on a Mac. Entries marked "verify" are unchecked.
+- Course status: Chapters 0 to 26 are drafted. Screenshots are still to be captured for most chapters.
 
 ---
 

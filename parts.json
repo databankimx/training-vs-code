@@ -22,43 +22,43 @@
       "title": "Part III - Running and Checking",
       "chapters": [
         "ch08-terminal-and-tasks",
-        "ch09-running-debugging-testing"
+        "ch10-running-debugging-testing"
       ]
     },
     {
       "title": "Part IV - Source Control",
       "chapters": [
-        "ch10-source-control-panel",
-        "ch11-cloning-branches-stashing",
-        "ch12-fetch-pull-push",
-        "ch13-merge-conflicts",
-        "ch14-history-and-blame",
-        "ch15-pull-requests-and-issues"
+        "ch11-source-control-panel",
+        "ch12-cloning-branches-stashing",
+        "ch13-fetch-pull-push",
+        "ch14-merge-conflicts",
+        "ch15-history-and-blame",
+        "ch16-pull-requests-and-issues"
       ]
     },
     {
       "title": "Part V - Copilot and Extensions",
       "chapters": [
-        "ch16-setting-up-copilot",
-        "ch17-suggestions-and-chat",
-        "ch18-checking-what-copilot-writes",
-        "ch19-extensions"
+        "ch17-setting-up-copilot",
+        "ch18-suggestions-and-chat",
+        "ch19-checking-what-copilot-writes",
+        "ch20-extensions"
       ]
     },
     {
       "title": "Part VI - Working Faster",
       "chapters": [
-        "ch20-settings-and-profiles",
-        "ch21-shortcuts-snippets-and-extras",
-        "ch22-when-things-go-wrong"
+        "ch21-settings-and-profiles",
+        "ch22-shortcuts-snippets-and-extras",
+        "ch23-when-things-go-wrong"
       ]
     },
     {
       "title": "Part VII - Putting It Together",
       "chapters": [
-        "ch23-capstone-change-test-review",
-        "ch24-summary-working-checklist",
-        "ch25-appendix-shortcuts-commands-remote"
+        "ch24-capstone-change-test-review",
+        "ch25-summary-working-checklist",
+        "ch26-appendix-shortcuts-commands-remote"
       ]
     }
   ]

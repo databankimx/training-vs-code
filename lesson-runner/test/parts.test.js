@@ -36,8 +36,8 @@ test('a parts file without a parts list is refused', () => {
 });
 
 test('a part that names a chapter folder that does not exist is refused', () => {
-  const parts = [{ title: 'One', chapters: ['ch99-missing'] }];
-  assert.throws(() => checkParts(parts, ['ch00-a']), /ch99-missing, which is not a chapter folder/);
+  const parts = [{ title: 'One', chapters: ['ch100-missing'] }];
+  assert.throws(() => checkParts(parts, ['ch00-a']), /ch100-missing, which is not a chapter folder/);
 });
 
 test('a chapter that no part lists is refused, so it cannot go missing from the menu', () => {

@@ -18,7 +18,7 @@ Select Use this template, and then Create a new repository. GitHub asks for a na
 
 Choose Private if you want your practice work out of public view. Private is a good choice for this course.
 
-Your new repository now lives under your account, at an address with your username in it. You will use that address when you clone the repository in Chapter 11.
+Your new repository now lives under your account, at an address with your username in it. You will use that address when you clone the repository in Chapter 12.
 
 > **Do not use a company repository:** the exercises change files, create branches, and sometimes leave them in a mess. Keep them in your personal practice repository, never in a repository your team uses.
 

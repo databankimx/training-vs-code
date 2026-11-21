@@ -41,7 +41,7 @@ Type the name of a repository to filter the list. Each entry shows the owner, th
 For this chapter, paste your copy's address, which is the one you used in Chapter 3:
 
 ```
-https://github.com/YOUR-USERNAME/training-practice.git
+https://github.com/YOUR-USERNAME/training-vs-code-practice.git
 ```
 
 Replace `YOUR-USERNAME` with your GitHub user name. If you choose Clone from GitHub instead, pick your copy from the list.
@@ -60,6 +60,6 @@ git log --oneline -3
 
 The top commit should be the one from Chapter 3, or the first commit of your copy. It should not show the README commit from Chapter 11, because that commit was never pushed.
 
-> **Clone is not copy.** The clone is a separate repository with its own history. Changes you make in `branches-practice` do not appear in `training-practice`, and the other way round.
+> **Clone is not copy.** The clone is a separate repository with its own history. Changes you make in `branches-practice` do not appear in `training-vs-code-practice`, and the other way round.
 
 ---

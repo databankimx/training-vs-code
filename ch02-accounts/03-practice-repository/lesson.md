@@ -10,7 +10,7 @@ Open the practice template at https://github.com/databankimx/training-vs-code-pr
 
 *Figure 2.5 - Use this template button*
 
-Select Use this template, and then Create a new repository. GitHub asks for a name. Use something that tells you what it is, such as training-practice. Tick Include all branches, so that the conflict branch comes with your copy.
+Select Use this template, and then Create a new repository. GitHub asks for a name. Use something that tells you what it is, such as training-vs-code-practice. Tick Include all branches, so that the conflict branch comes with your copy.
 
 ![Figure 2.6 - Create a repository from the template, with Include all branches ticked](images/ch02-create-from-template-form.png)
 

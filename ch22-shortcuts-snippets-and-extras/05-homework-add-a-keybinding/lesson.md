@@ -28,7 +28,7 @@ Look for red underlines. A missing comma, or an extra one, stops the file from l
 
 ## Step 5: test the shortcut
 
-Open `calculator.py` in `training-practice`. Put the cursor on a line, press your new shortcut, and check the result. Then undo it with {{Ctrl+Z}}.
+Open `calculator.py` in `training-vs-code-practice`. Put the cursor on a line, press your new shortcut, and check the result. Then undo it with {{Ctrl+Z}}.
 
 ~~~spoiler
 Here is a complete keybindings file with the entry added. If you already have entries, keep them, and add a comma after the one before:

@@ -1,6 +1,6 @@
 # Homework: a launch configuration for the practice tests
 
-In VS Code, open your practice folder, `training-practice`. Make every change there, not in the runner.
+In VS Code, open your practice folder, `training-vs-code-practice`. Make every change there, not in the runner.
 
 Create a file called `launch.json` in the `.vscode` folder, beside `tasks.json` and `extensions.json`. Use the Run and Debug view, as the last lesson showed, or create the file by hand. Write one configuration in it, with these properties:
 

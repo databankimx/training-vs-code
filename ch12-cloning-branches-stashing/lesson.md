@@ -6,6 +6,6 @@ A branch is a separate line of commits. You use one when you want to try somethi
 
 The work in this chapter happens in VS Code's own state, so each step is a checklist item. Where Git can confirm the result, the lesson gives the terminal command to run and check.
 
-Use a second folder for this chapter, such as `C:\Development\training\branches-practice`. Leave `training-practice` alone, because it still holds the commit and the changes from Chapter 11.
+Use a second folder for this chapter, such as `C:\Development\training\branches-practice`. Leave `training-vs-code-practice` alone, because it still holds the commit and the changes from Chapter 11.
 
 ---

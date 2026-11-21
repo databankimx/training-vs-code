@@ -1,6 +1,6 @@
 # Homework: create a conflict
 
-You will create a conflict on purpose, so the next lessons have a real one to read. The file is `calculator.py` in your `training-practice` folder. Leave the conflict in place when you finish this lesson. You resolve it in the last lesson of the chapter.
+You will create a conflict on purpose, so the next lessons have a real one to read. The file is `calculator.py` in your `training-vs-code-practice` folder. Leave the conflict in place when you finish this lesson. You resolve it in the last lesson of the chapter.
 
 Make sure `main` is checked out and clean before you start. Commit or stash anything you have changed.
 

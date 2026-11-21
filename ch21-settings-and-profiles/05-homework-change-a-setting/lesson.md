@@ -20,7 +20,7 @@ Look for red underlines. A missing comma, or an extra one, stops the whole file 
 
 ## Step 4: confirm the change in the editor
 
-Open `calculator.py` in `training-practice`. A thin vertical line appears at column 79. Count the columns from the left edge of the text to check that the line sits where the setting says it should.
+Open `calculator.py` in `training-vs-code-practice`. A thin vertical line appears at column 79. Count the columns from the left edge of the text to check that the line sits where the setting says it should.
 
 ## Step 5: confirm the change in the Settings editor
 

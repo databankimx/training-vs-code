@@ -1,6 +1,6 @@
 # Homework: rename add to plus
 
-In VS Code, open your practice folder, `training-practice`. Make every change there, not in the runner. The folder holds two files that use `add`: `calculator.py` and `test_calculator.py`. Rename the function to `plus` in both, and nothing else.
+In VS Code, open your practice folder, `training-vs-code-practice`. Make every change there, not in the runner. The folder holds two files that use `add`: `calculator.py` and `test_calculator.py`. Rename the function to `plus` in both, and nothing else.
 
 Your `calculator.py` should match the solution from Chapter 4, so its starter looks like this:
 

@@ -8,6 +8,6 @@ Every commit you have made in this course is still in the history of your practi
 
 Nothing in this chapter changes a file, so there is no homework. Every step is a check. The terminal commands in each lesson show the same information, and you can use them to confirm what you see in VS Code.
 
-Use your `training-practice` folder. Its `calculator.py` has the most history, which makes it the best file to practise on.
+Use your `training-vs-code-practice` folder. Its `calculator.py` has the most history, which makes it the best file to practise on.
 
 ---

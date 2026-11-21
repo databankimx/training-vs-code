@@ -4,7 +4,7 @@ You will add the Pylint extension to the practice repository's recommendations, 
 
 ## Step 1: open the file
 
-In `training-practice`, open `.vscode/extensions.json`. If the file does not exist, create it, and save it in the `.vscode` folder.
+In `training-vs-code-practice`, open `.vscode/extensions.json`. If the file does not exist, create it, and save it in the `.vscode` folder.
 
 ## Step 2: add the recommendation
 

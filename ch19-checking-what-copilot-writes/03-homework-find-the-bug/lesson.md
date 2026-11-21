@@ -4,7 +4,7 @@ This homework uses a file with a bug in it. Copilot's explanation of the file is
 
 ## Step 1: create the file
 
-In `training-practice`, create a file called `average.py`, and type this in. Save it.
+In `training-vs-code-practice`, create a file called `average.py`, and type this in. Save it.
 
 ```python
 def average(numbers):

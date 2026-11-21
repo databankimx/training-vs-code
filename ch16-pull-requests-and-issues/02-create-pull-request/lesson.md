@@ -4,7 +4,7 @@ You can open the pull request on the website or from VS Code. Both create the sa
 
 ## On the website
 
-Open your copy of the practice repository on GitHub, `training-practice`. Once a branch is published, GitHub shows a banner for it, with a Compare & pull request button. Click it.
+Open your copy of the practice repository on GitHub, `training-vs-code-practice`. Once a branch is published, GitHub shows a banner for it, with a Compare & pull request button. Click it.
 
 ![Figure 16.1 - The banner for a recently pushed branch, with the Compare & pull request button](images/ch16-compare-banner.png "width=100%")
 

@@ -6,7 +6,7 @@ The Timeline view lists the commits that touched the file you have open. It sits
 
 *Figure 15.1 - The Timeline section under the file tree in the Explorer*
 
-Open `calculator.py` in `training-practice`. In the Explorer, the Timeline section sits under the Outline section, below the file tree. Expand it if it is collapsed.
+Open `calculator.py` in `training-vs-code-practice`. In the Explorer, the Timeline section sits under the Outline section, below the file tree. Expand it if it is collapsed.
 
 Each entry shows the commit message, the author, and how long ago the commit was made. The newest commit is at the top. For `calculator.py` you should see the merge from Chapter 14, the two commits that changed the `add` function, and earlier commits from the course.
 

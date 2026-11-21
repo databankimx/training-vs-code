@@ -4,7 +4,7 @@ Before the Testing view can find tests, VS Code needs to know which framework yo
 
 > **Which framework to use:** `unittest` is part of Python, so it is the right choice for this course's practice repository. For real work, the DataBank IMX standard is `pytest`. It runs `unittest`-style tests too, and it is the framework to use for your own projects. The steps here work the same way for `pytest` if you configure it, but the course uses `unittest` throughout.
 
-Open your practice folder, `training-practice`, in VS Code. Then do this:
+Open your practice folder, `training-vs-code-practice`, in VS Code. Then do this:
 
 1. Press {{Ctrl+Shift+P}}, type `Python: Configure Tests`, and press {{Enter}}.
 2. Choose `unittest` from the list.

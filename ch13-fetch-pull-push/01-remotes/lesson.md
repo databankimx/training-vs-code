@@ -4,7 +4,7 @@ A remote is another copy of the repository, somewhere else. For your practice re
 
 ```mermaid
 flowchart LR
-  A["Your computer<br/>training-practice"] -->|push| B["GitHub<br/>origin"]
+  A["Your computer<br/>training-vs-code-practice"] -->|push| B["GitHub<br/>origin"]
   B -->|fetch and pull| A
 ```
 

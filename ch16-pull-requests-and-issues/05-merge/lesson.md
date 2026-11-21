@@ -12,7 +12,7 @@ Click Merge pull request. Keep the default merge method that the repository offe
 
 Your local `main` does not have the change yet. Bring it up to date:
 
-1. In `training-practice`, switch to `main` from the status bar.
+1. In `training-vs-code-practice`, switch to `main` from the status bar.
 2. Run `Sync Changes` from the Source Control view. This fetches the merged commit and brings it into your local `main`.
 3. Delete the local `pr-practice` branch with `Git: Delete Branch...`, choosing `pr-practice`.
 

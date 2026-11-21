@@ -1,6 +1,6 @@
 # Homework: a tasks.json entry for the practice tests
 
-In VS Code, open your practice folder, `training-practice`. Make every change there, not in the runner.
+In VS Code, open your practice folder, `training-vs-code-practice`. Make every change there, not in the runner.
 
 Create a file called `tasks.json` in the `.vscode` folder of the practice folder. The folder already exists, because it holds `extensions.json`, so you only need to add the new file beside it. Write one task in it, with these properties:
 

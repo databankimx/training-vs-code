@@ -8,7 +8,7 @@ Three actions do the work:
 - **Pull** downloads commits and then brings them into your branch.
 - **Push** uploads your commits to GitHub.
 
-This chapter uses your copy of the practice repository, `training-practice`, the one from Chapter 3. Its `main` branch has one commit that exists only on your computer, the README commit from Chapter 11, so there is something to push.
+This chapter uses your copy of the practice repository, `training-vs-code-practice`, the one from Chapter 3. Its `main` branch has one commit that exists only on your computer, the README commit from Chapter 11, so there is something to push.
 
 Like Chapter 12, most steps are VS Code's own state, so they are checklist items. The terminal commands in each lesson show the result.
 

@@ -1,0 +1,4 @@
+{
+  "title": "Homework: update the package, then check it",
+  "objective": "Update Newtonsoft.Json to 13.0.4 with the palette, then confirm it with dotnet package list, --outdated, and --vulnerable."
+}

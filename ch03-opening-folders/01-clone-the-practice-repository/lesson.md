@@ -1,6 +1,6 @@
 # Cloning the practice repository
 
-Your practice repository lives on GitHub, under your account. Before you can work on it, you need a copy on your computer. This step makes that copy with Git, from PowerShell. Chapter 12 shows how to copy a repository from inside VS Code.
+Your practice repository lives on GitHub, under your account. Before you can work on it, you need a copy on your computer. This step makes that copy with Git, from PowerShell. Chapter 13 shows how to copy a repository from inside VS Code.
 
 Open PowerShell, and move to the folder where you keep your projects. This course uses C:\Development:
 

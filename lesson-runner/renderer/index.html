@@ -78,6 +78,12 @@
       .hljs-number { color: var(--tok-number); }
       .hljs-comment, .hljs-quote { color: var(--tok-comment); font-style: italic; }
       .hljs-variable, .hljs-params, .hljs-property, .hljs-attr { color: var(--tok-variable); }
+      /* XML markup, with the colors VS Code uses for tags and attributes. */
+      .hljs-tag { color: #808080; }
+      .hljs-name { color: var(--tok-keyword); }
+      body.light .hljs-tag { color: #800000; }
+      body.light .hljs-name { color: #800000; }
+      body.light .hljs-attr { color: #ff0000; }
 
       /* Lesson text. Code blocks wrap rather than scroll sideways. */
       .lesson { flex: 1; overflow: auto; padding: 14px 24px 24px; line-height: 1.6; font-size: var(--lesson-size); min-height: 0; }

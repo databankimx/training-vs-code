@@ -16,7 +16,7 @@ Language support comes from extensions. The features in this chapter need these:
 
 Press {{Ctrl+Shift+X}} to open the Extensions view. Type `Python` in the search box, and choose the one published by Microsoft. Select Install. The install takes a moment, and the extension is then ready for every Python file.
 
-Chapter 20 explains the Extensions view in full, including how to disable an extension without removing it.
+Chapter 21 explains the Extensions view in full, including how to disable an extension without removing it.
 
 ## Choosing the interpreter
 

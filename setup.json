@@ -39,6 +39,15 @@
       "paths": [
         "%ProgramFiles%\\nodejs\\node.exe"
       ]
+    },
+    {
+      "kind": "winget",
+      "id": "Microsoft.DotNet.SDK.10",
+      "check": "dotnet",
+      "minimum": "10",
+      "paths": [
+        "%ProgramFiles%\\dotnet\\dotnet.exe"
+      ]
     }
   ],
   "npm": [
@@ -52,7 +61,10 @@
     "folder": "lesson-runner"
   },
   "vscode": {
-    "extensions": [],
+    "extensions": [
+      "ms-dotnettools.csharp",
+      "ms-dotnettools.csdevkit"
+    ],
     "shellExtensions": true
   },
   "launch": {

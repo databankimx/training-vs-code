@@ -50,6 +50,7 @@ $BootstrapBranch  = "main"
 $ApprovedExtensions = @(
     "ms-python.python",
     "ms-dotnettools.csharp",
+    "ms-dotnettools.csdevkit",
     "ms-vscode.cpptools-extension-pack",
     "rust-lang.rust-analyzer",
     "GitHub.copilot",

@@ -22,6 +22,7 @@
       "title": "Part III - Running and Checking",
       "chapters": [
         "ch08-terminal-and-tasks",
+        "ch09-dotnet-command-line",
         "ch10-running-debugging-testing"
       ]
     },

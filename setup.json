@@ -17,7 +17,7 @@
       "winget": "Microsoft.VisualStudioCode",
       "extensions": [ "ms-dotnettools.csharp", "ms-dotnettools.csdevkit" ]
     },
-    "notepadPlusPlus": { "install": false, "winget": "Notepad++.Notepad++" },
+    "notepadPlusPlus": { "install": true, "winget": "Notepad++.Notepad++" },
     "buildTools": { "install": false }
   },
   "steps": [

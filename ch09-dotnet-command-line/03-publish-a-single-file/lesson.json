@@ -1,0 +1,4 @@
+{
+  "title": "Publish a single file",
+  "objective": "Publish a self-contained single-file executable with dotnet publish, and run it."
+}

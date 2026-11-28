@@ -4,11 +4,11 @@ The homework in this chapter changes a file called `prices.py`. Before you can c
 
 ## Create the file in the Explorer
 
-Make sure the practice folder, `training-practice`, is open in VS Code. Press {{Ctrl+Shift+E}} to show the Explorer if it is hidden. Right-click the empty space below the folder's files, and choose New File. Type `prices.py`, and press {{Enter}}.
+Make sure the practice folder, `training-vs-code-practice`, is open in VS Code. Press {{Ctrl+Shift+E}} to show the Explorer if it is hidden. Right-click the empty space below the folder's files, and choose New File. Type `prices.py`, and press {{Enter}}.
 
 VS Code creates the file in the practice folder and opens it in the editor. It is empty for now.
 
-> **Create it in the practice folder:** if you create the file in `training-vs-code`, the course folder, the homework will not find it. The Explorer shows the folder name at the top of the list. Check that it reads `training-practice` before you create the file.
+> **Create it in the practice folder:** if you create the file in `training-vs-code`, the course folder, the homework will not find it. The Explorer shows the folder name at the top of the list. Check that it reads `training-vs-code-practice` before you create the file.
 
 ## Type the prices
 

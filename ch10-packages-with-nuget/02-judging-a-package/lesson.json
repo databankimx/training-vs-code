@@ -1,0 +1,4 @@
+{
+  "title": "Judging a package before you add it",
+  "objective": "Read the nuget.org page for Newtonsoft.Json, and record its stable version, license, owners, and dependencies."
+}

@@ -22,43 +22,45 @@
       "title": "Part III - Running and Checking",
       "chapters": [
         "ch08-terminal-and-tasks",
-        "ch09-running-debugging-testing"
+        "ch09-dotnet-command-line",
+        "ch10-packages-with-nuget",
+        "ch11-running-debugging-testing"
       ]
     },
     {
       "title": "Part IV - Source Control",
       "chapters": [
-        "ch10-source-control-panel",
-        "ch11-cloning-branches-stashing",
-        "ch12-fetch-pull-push",
-        "ch13-merge-conflicts",
-        "ch14-history-and-blame",
-        "ch15-pull-requests-and-issues"
+        "ch12-source-control-panel",
+        "ch13-cloning-branches-stashing",
+        "ch14-fetch-pull-push",
+        "ch15-merge-conflicts",
+        "ch16-history-and-blame",
+        "ch17-pull-requests-and-issues"
       ]
     },
     {
       "title": "Part V - Copilot and Extensions",
       "chapters": [
-        "ch16-setting-up-copilot",
-        "ch17-suggestions-and-chat",
-        "ch18-checking-what-copilot-writes",
-        "ch19-extensions"
+        "ch18-setting-up-copilot",
+        "ch19-suggestions-and-chat",
+        "ch20-checking-what-copilot-writes",
+        "ch21-extensions"
       ]
     },
     {
       "title": "Part VI - Working Faster",
       "chapters": [
-        "ch20-settings-and-profiles",
-        "ch21-shortcuts-snippets-and-extras",
-        "ch22-when-things-go-wrong"
+        "ch22-settings-and-profiles",
+        "ch23-shortcuts-snippets-and-extras",
+        "ch24-when-things-go-wrong"
       ]
     },
     {
       "title": "Part VII - Putting It Together",
       "chapters": [
-        "ch23-capstone-change-test-review",
-        "ch24-summary-working-checklist",
-        "ch25-appendix-shortcuts-commands-remote"
+        "ch25-capstone-change-test-review",
+        "ch26-summary-working-checklist",
+        "ch27-appendix-shortcuts-commands-remote"
       ]
     }
   ]

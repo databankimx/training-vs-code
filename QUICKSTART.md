@@ -21,37 +21,117 @@ The script puts the course in `C:\Development\training\training-vs-code`. It cre
 
 ---
 
-## 1. Run the setup script
+## Quick setup with the script
 
-Open PowerShell. Go to the folder that holds `setup.ps1`, and run:
+### What gets installed
 
+By default, the setup installs:
+
+* Git
+* PowerShell 7
+* Node.js 24 or newer
+* .NET SDK 10
+* Microsoft Visual C++ runtime
+* VS Code, with the extensions ms-dotnettools.csharp, ms-dotnettools.csdevkit
+* Notepad++
+
+The C++ Build Tools aren't installed up front. The script installs them only if Electron's binary can't download.
+
+The setup then runs these steps: npm packages; Course tests. At the end it opens the repository in VS Code and starts the lesson runner window (Electron).
+
+### Getting started
+
+There are three methods available to set up this tutorial. They are currently Windows-only.
+
+#### Full Automation (if you don't have Git currently set up)
+
+This process will install Git and copy the repository to a subfolder of `C:\Development\training` and install all necessary software and extensions for the tutorial's lesson runner.
+
+1. Obtain the tutorial's GitHub slug name, which is `training-vs-code`
+2. Open PowerShell using "Run as Administrator"
+3. Run the script below
+
+```pwsh
+# Obtain the load tutorial script
+irm https://raw.githubusercontent.com/databankimx/training-shared-template/main/load-tutorial.ps1 -OutFile "$env:TEMP\load-tutorial.ps1"
+
+# Perform automated setup
+powershell -NoProfile -ExecutionPolicy Bypass -File "$env:TEMP\load-tutorial.ps1" -RepoUrl https://github.com/databankimx/training-vs-code.git
 ```
+
+#### Automated Setup from Local Repo (assumes you already have Git installed and set up)
+
+In this process, you pull the existing repository and then run its setup script, which installs all necessary software and extensions for the tutorial's lesson runner.
+
+1. Obtain the tutorial's GitHub slug name, which is `training-vs-code`
+2. Open PowerShell using "Run as Administrator"
+3. If you will use the default base directory `C:\Development\training`, run the following:
+
+```pwsh
+# Create the base folder if it doesn't exist yet
+New-Item -ItemType Directory -Force -Path C:\Development\training | Out-Null
+```
+
+4. Clone the repository. If you're using a different base directory, replace `C:\Development\training` with your path:
+
+```pwsh
+# Go there and clone the tutorial
+cd C:\Development\training
+git clone https://github.com/databankimx/training-vs-code.git
+cd training-vs-code
+```
+
+5. If desired, edit the setup configuration, which determines what software is installed automatically (see "Change what gets installed" below)
+
+```pwsh
+# Optional: edit setup.json before installations
+notepad setup.json
+```
+
+6. Save the configuration if you edited it, then run the setup script
+
+##### If using the default base path, run this:
+
+```pwsh
+# Run the setup
 powershell -NoProfile -ExecutionPolicy Bypass -File .\setup.ps1
 ```
 
-The `-ExecutionPolicy Bypass` part lets this one script run. It does not change any setting on your computer.
+##### If using a different base path, replace `<BASE_DIR>` with your path and run this:
 
-The script does the following, in order:
+```pwsh
+# Run the setup
+powershell -NoProfile -ExecutionPolicy Bypass -File .\setup.ps1 -BaseDirectory <BASE_DIR>
+```
 
-1. Checks for Git, and installs it with winget if it is missing.
-2. Clones the course into `C:\Development\training\training-vs-code`, if the script isn't already in a copy of it.
-3. Installs the Visual C++ runtime, which the lesson runner needs, if it is missing. This step needs an Administrator window.
-4. Checks for VS Code and Node.js 24 or later, and installs whichever is missing.
-5. Installs the lesson runner's packages, and downloads Electron, the app that displays the lessons.
-6. Adds the "Open with Code" entries to the right-click menu for your user account.
-7. Opens the course in VS Code, and starts the lesson runner.
+#### Manual Setup from Local Repo
 
-It prints a summary at the end. Each line should show a success word, such as `present`, `installed`, `ok`, `downloaded`, or `added`. When every step has succeeded, the last line reads `Setup is complete.`
+If you want to do everything manually, you can pull the repository and set up software on your own.
 
-Useful switches:
+1. Obtain the tutorial's GitHub slug name, which is `training-vs-code`
+2. Run the script below
 
-- `-SkipInstall` checks what is installed, and installs nothing. It lists what is missing.
-- `-NoLaunch` installs everything, but doesn't open VS Code or the lesson runner.
-- `-RunTests` runs the lesson runner's tests after the install.
+```pwsh
+git clone https://github.com/databankimx/training-vs-code.git
+```
 
-Use `-RepoDir` to put the course somewhere other than `C:\Development\training`.
+3. Review README.md and QUICKSTART.md in the repository for instructions for manual setup.
 
----
+### Switches and notes
+
+* `-SkipInstall` checks what's installed and installs nothing.
+* `-NoLaunch` runs the setup but doesn't open VS Code or start the runner.
+* `-SkipTests` skips the course tests, which the setup runs by default.
+* Installing uses winget. If winget isn't available, install **App Installer** from the Microsoft Store first. Company policy can block installs, in which case the script stops and you'll need IT.
+* If an install needs administrator rights, the script stops before installing anything and asks you to run it again from an Administrator PowerShell window.
+
+### Change what gets installed
+
+The settings are in `setup.json`, in the repository folder. Open it in any text editor:
+
+* Set an install's `"install"` to `true` to include it, or `false` to skip it.
+* `"pinned"` sets the version. `"extensions"` lists the VS Code extensions to add.
+* Save the file, then run `setup.ps1` again. It skips what's already installed.
 
 ## 2. Check the result
 

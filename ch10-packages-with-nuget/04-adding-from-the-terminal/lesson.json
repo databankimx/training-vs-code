@@ -1,0 +1,4 @@
+{
+  "title": "The same work in the terminal",
+  "objective": "Remove Newtonsoft.Json, add version 13.0.3 with dotnet package add, and confirm the requested version with dotnet package list."
+}

@@ -1,64 +1,45 @@
 {
+  "schemaVersion": 2,
   "name": "Working With Visual Studio Code",
   "folder": "training-vs-code",
   "repoUrl": "https://github.com/databankimx/training-vs-code.git",
   "branch": "main",
-  "requirePowerShell7": false,
-  "requirements": [
-    {
-      "kind": "vcRuntime",
-      "id": "Microsoft.VCRedist.2015+.x64",
-      "checkFiles": [
-        "%SystemRoot%\\System32\\VCRUNTIME140.dll",
-        "%SystemRoot%\\System32\\MSVCP140.dll"
-      ],
-      "elevated": true
+  "baseDirectory": "C:\\Development\\training",
+  "runTests": true,
+  "installs": {
+    "git": { "install": true, "winget": "Git.Git" },
+    "powershell7": { "install": true, "pinned": "7", "winget": "Microsoft.PowerShell" },
+    "node": { "install": true, "pinned": "24", "orNewer": true, "winget": "OpenJS.NodeJS.LTS" },
+    "dotnet": { "install": true, "pinned": "10", "winget": "Microsoft.DotNet.SDK.10" },
+    "vcRuntime": { "install": true },
+    "vscode": {
+      "install": true,
+      "winget": "Microsoft.VisualStudioCode",
+      "extensions": [ "ms-dotnettools.csharp", "ms-dotnettools.csdevkit" ]
     },
+    "notepadPlusPlus": { "install": true, "winget": "Notepad++.Notepad++" },
+    "buildTools": { "install": false }
+  },
+  "steps": [
     {
-      "kind": "winget",
-      "id": "Git.Git",
-      "check": "git",
-      "paths": [
-        "%ProgramFiles%\\Git\\cmd\\git.exe"
-      ]
-    },
-    {
-      "kind": "winget",
-      "id": "Microsoft.VisualStudioCode",
-      "check": "code",
-      "paths": [
-        "%LOCALAPPDATA%\\Programs\\Microsoft VS Code\\bin\\code.cmd",
-        "%ProgramFiles%\\Microsoft VS Code\\bin\\code.cmd"
-      ]
-    },
-    {
-      "kind": "winget",
-      "id": "OpenJS.NodeJS.LTS",
-      "check": "node",
-      "minimum": "24",
-      "paths": [
-        "%ProgramFiles%\\nodejs\\node.exe"
-      ]
-    }
-  ],
-  "npm": [
-    {
+      "name": "npm packages",
+      "type": "npm",
       "folder": "lesson-runner",
-      "install": "auto",
-      "test": true
+      "command": "ci",
+      "requires": [ "node" ]
+    },
+    {
+      "name": "Course tests",
+      "type": "npm-run",
+      "folder": "lesson-runner",
+      "script": "test",
+      "runTests": true,
+      "requires": [ "node" ]
     }
   ],
-  "electron": {
-    "folder": "lesson-runner"
-  },
-  "vscode": {
-    "extensions": [],
-    "shellExtensions": true
-  },
   "launch": {
     "ide": "vscode",
     "kind": "electron",
-    "folder": "lesson-runner",
-    "openRepo": true
+    "folder": "lesson-runner"
   }
 }

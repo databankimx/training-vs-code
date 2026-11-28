@@ -1,0 +1,4 @@
+{
+  "title": "What a package is",
+  "objective": "Explain what a package, a package ID, a version, and a PackageReference are, and find the project's target framework."
+}

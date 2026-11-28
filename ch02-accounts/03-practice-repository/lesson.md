@@ -10,7 +10,7 @@ Open the practice template at https://github.com/databankimx/training-vs-code-pr
 
 *Figure 2.5 - Use this template button*
 
-Select Use this template, and then Create a new repository. GitHub asks for a name. Use something that tells you what it is, such as training-practice. Tick Include all branches, so that the conflict branch comes with your copy.
+Select Use this template, and then Create a new repository. GitHub asks for a name. Use something that tells you what it is, such as training-vs-code-practice. Tick Include all branches, so that the conflict branch comes with your copy.
 
 ![Figure 2.6 - Create a repository from the template, with Include all branches ticked](images/ch02-create-from-template-form.png)
 
@@ -18,7 +18,7 @@ Select Use this template, and then Create a new repository. GitHub asks for a na
 
 Choose Private if you want your practice work out of public view. Private is a good choice for this course.
 
-Your new repository now lives under your account, at an address with your username in it. You will use that address when you clone the repository in Chapter 11.
+Your new repository now lives under your account, at an address with your username in it. You will use that address when you clone the repository in Chapter 13.
 
 > **Do not use a company repository:** the exercises change files, create branches, and sometimes leave them in a mess. Keep them in your personal practice repository, never in a repository your team uses.
 

@@ -1,0 +1,4 @@
+{
+  "title": "Adding a package from the Command Palette",
+  "objective": "Use NuGet: Add NuGet Package to add Newtonsoft.Json 13.0.4 to the Calculator project, and read the PackageReference it writes."
+}
